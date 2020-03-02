@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
     @discussion = Discussion.find(params[:discussion_id])
     @comment.discussion = @discussion
     if @comment.save
+      flash[:notice] = "Commented created succesfully"
       redirect_to discussion_comments(@comment)
     else
       render :new
