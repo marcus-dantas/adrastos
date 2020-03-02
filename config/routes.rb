@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :articles do
     resources :discussons, only: [:new, :create]
   end
-  resources :discussions, only: [:edit, :update, :destroy] do
+  resources :discussions, only: [:show, :edit, :update, :destroy] do
     resources :comments, only: :create
   end
   resources :comments, only: :destroy
