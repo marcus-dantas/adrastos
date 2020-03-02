@@ -27,7 +27,7 @@ class DiscussionsController < ApplicationController
   end
 
   def destroy
-    Discussion.destroy
+    @discussion.destroy
   end
 
   private
