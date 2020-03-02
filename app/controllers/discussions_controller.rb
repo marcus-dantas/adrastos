@@ -4,8 +4,7 @@ class DiscussionsController < ApplicationController
     @discussions = Discussions.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @discussion = Discussion.new
@@ -17,8 +16,7 @@ class DiscussionsController < ApplicationController
     # redirect_to discussion_path(@discussion)
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     @discussion = Discussion.find(params[:id])
@@ -31,9 +29,11 @@ class DiscussionsController < ApplicationController
   end
 
   private
+
   def discussion_params
     params.require(:discussion).permit(:title, :content)
   end
+
   def set_discussion
     @discussion = Discussion.find(params[:id])
   end
