@@ -5,6 +5,9 @@
 $body-font: "Work Sans", "Helvetica", "sans-serif";
 $headers-font: "Nunito", "Helvetica", "sans-serif";
 
+$title-font: 'Odibee Sans', cursive;
+$paragraph-font: 'Oxygen', sans-serif;
+
 // To use a font file (.woff) uncomment following lines
 // @font-face {
 //   font-family: "Font Name";
@@ -14,3 +17,8 @@ $headers-font: "Nunito", "Helvetica", "sans-serif";
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+
+// src: asset-url('fonts/.eot') format('embedded-opentype'),
+//      asset-url('fonts/my-font.woff') format('woff'),
+//      asset-url('fonts/my-font.ttf') format('truetype'),
+//      asset-url('fonts/my-font.svg#my-font') format('svg')
