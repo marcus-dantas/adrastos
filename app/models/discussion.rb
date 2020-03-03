@@ -1,5 +1,6 @@
 class Discussion < ApplicationRecord
   belongs_to :user
   belongs_to :article
-  has_many :comments, dependent: :destroy
+  has_many :comments, through: :sub_discussions
+  has_many :sub_discussions, dependent: :destroy
 end
