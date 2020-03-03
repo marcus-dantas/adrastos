@@ -14,10 +14,13 @@ button {
 }
 
 .sign-in-button {
-  color: black;
   background-color: white;
   border: 8px solid black;
   border-left: none;
+  a {
+    color: black;
+    text-decoration: none;
+  }
 }
 
 .sign-up-button {
