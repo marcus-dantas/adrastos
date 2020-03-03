@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_02_141330) do
+ActiveRecord::Schema.define(version: 2020_03_03_161330) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,10 +27,10 @@ ActiveRecord::Schema.define(version: 2020_03_02_141330) do
   create_table "comments", force: :cascade do |t|
     t.text "content"
     t.bigint "user_id", null: false
-    t.bigint "discussion_id", null: false
+    t.bigint "sub_discussion_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["discussion_id"], name: "index_comments_on_discussion_id"
+    t.index ["sub_discussion_id"], name: "index_comments_on_sub_discussion_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
@@ -43,6 +43,14 @@ ActiveRecord::Schema.define(version: 2020_03_02_141330) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["article_id"], name: "index_discussions_on_article_id"
     t.index ["user_id"], name: "index_discussions_on_user_id"
+  end
+
+  create_table "sub_discussions", force: :cascade do |t|
+    t.string "title"
+    t.bigint "discussion_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["discussion_id"], name: "index_sub_discussions_on_discussion_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -76,8 +84,9 @@ ActiveRecord::Schema.define(version: 2020_03_02_141330) do
   end
 
   add_foreign_key "articles", "users"
-  add_foreign_key "comments", "discussions"
+  add_foreign_key "comments", "sub_discussions"
   add_foreign_key "comments", "users"
   add_foreign_key "discussions", "articles"
   add_foreign_key "discussions", "users"
+  add_foreign_key "sub_discussions", "discussions"
 end
