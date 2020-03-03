@@ -1,0 +1,61 @@
+
+.page-layout {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+  }
+}
+.panel {
+  padding: 40px;
+}
+
+h4 span {
+    background-color: black;
+    color: white;
+    margin: -10px;
+}
+
+.header {
+  background-color: black;
+  margin: -10px;
+    p {
+    font-size: 4px;
+  }
+}
+.container {
+display: flex;
+margin: -12px;
+padding: 0px;
+}
+.flex-item {
+  flex: 0 0 50%;
+}
+ul {
+  list-style-type:none;
+}
+
+a.button1 {
+  text-decoration:none;
+  padding:0.50em 1.4em;
+  background-color: black;
+  font-size: 18px;
+  color: white;
+  text-align: center;
+}
+
+
+#new-topic {
+  text-align: center;
+}

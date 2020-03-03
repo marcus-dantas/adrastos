@@ -4,7 +4,10 @@ class ArticlesController < ApplicationController
     @articles = Article.all
   end
 
-  def show; end
+  def show
+    @discussions = Discussion.all
+    @subdiscussions = SubDiscussion.all
+  end
 
   def new
     @article = Article.new
