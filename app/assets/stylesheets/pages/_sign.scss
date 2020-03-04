@@ -1,10 +1,16 @@
-.log-in {
-
-
+.log-header {
+  font-family: $title-font;
 }
-
-
-.log-in-inputs input{
+// sign in  styling
+button {
+  // font-size: 24px;
+  padding: 5px 34px;
+  width: 100%;
+  font-family: $title-font;
+  font-size: 220px;
+}
+//
+.input-input {
   border: 5px solid black;
   // width: 100%;
   height: 44px;
@@ -14,16 +20,30 @@
     box-shadow: 0 0 2px black;
   }
 }
+.bottom-links {
+  color: black;
+  font-family: $paragraph-font;
+  &:hover {
+    text-decoration: none;
+    color: black;
+
+  }
+  
+}
+.sign-in-input-labels {
+  font-family: $paragraph-font;
+  font-size: 12px;
+}
 
 .log-in-inputs label {
   font-size: 12px;
 }
-
 .log-in {
+  font-family: $title-font;
   color: white;
   background-color: black;
   padding: 5px 40px;
-  font-size: 16px;
+  font-size: 24px;
   border: 5px solid white;
   &:hover {
     background-color: white;
@@ -33,8 +53,8 @@
   }
 }
 
-.sign-in-container a {
-  // text-decoration: none;
-  color: black;
-  font-size: 12px;
-}
+// .sign-in-container a {
+//   // text-decoration: none;
+//   color: black;
+//   font-size: 12px;
+// }
