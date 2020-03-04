@@ -3,8 +3,15 @@
     <h1><%= @article.title %></h1>
     <p>Published on <%= @article.created_at.strftime('%b. %d %Y') %></p>
     <br/>
-    <iframe width="500" height="315" src="https://www.youtube.com/watch?v=19gOCrueAkk" frameborder="0" allowfullscreen></iframe>
+    <%# <iframe width="500" height="315" src="https://www.youtube.com/watch?v=19gOCrueAkk" frameborder="0" allowfullscreen></iframe> %>
     <br/>
+    <div class="img-container">
+       <% if @article.photo.attached? %>
+      <%= cl_image_tag @article.photo.key, class: "img-show"%>
+      <% else %>
+       <%= image_tag 'no-image-icon.png'%>
+      <% end %>
+    </div>
     <p><%= @article.content %></p>
   </div>
   <div class="panel">
