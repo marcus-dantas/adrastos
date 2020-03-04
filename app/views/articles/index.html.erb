@@ -2,7 +2,8 @@
   <!-- Main title and sign-up button -->
   <div class="main-titles">
     <h1 class="main-title">Adrastos</h1>
-    <p class="join">Join the community</p>
+    <p class="join"><%= link_to "Join the community", new_user_registration_path, class: "join" %></p>
+    <%= link_to "Log out", destroy_user_session_path, method: :delete%>
   </div>
   <br>
   <!-- Two call to action buttons above the grid -->
@@ -13,10 +14,19 @@
   <!-- Grid of cards showing all the articles -->
   <div class="index-grid">
     <% @articles.each_with_index do |article, index| %>
+    <img src="https://d3tg06jbotvai2.cloudfront.net/game_tetiere/img/diablo-3-reaper-of-souls-img-4.jpg"  alt="">
       <div class='<%= "article-#{index + 1}" %>'>
-        <%= article.title %>
+        <p class="game-title-grid"><%= article.title %></p>
       </div>
     <% end %>
   </div>
     <!-- Small break in the grid before starting again -->
+  <div class="grid-break-container">
+    <h3 class="grid-break-msg">
+      Help the community and get up to 40%<br>
+       off on your next game
+    </h3>
+    <br>
+    <a href="#" class="join-grid-break-btn">Join the community</a>
+  </div>
 </div>

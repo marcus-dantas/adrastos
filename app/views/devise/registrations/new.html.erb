@@ -1,10 +1,11 @@
 <div class="container sign-up-container">
   <div class="row justify-content-center">
-    <div>
-    <h1 class="text-center">ADRASTOS</h1>
-     <div class="d-flex justify-content-center">
-        <button class="sign-up-button">SIGN UP</button>
-        <button class="sign-in-button"><%= link_to 'SIGN IN', user_session_path %></button>
+    <div class="logo-container">
+    <%= image_tag "adrastos_logo.svg", class: "logo-header" %>
+     <div class="d-flex justify-content-center moving-container">
+        <button class="sign-up-button"><%= link_to 'SIGN UP', new_user_registration_path %></button>
+        <button class="sign-in-button"><%= link_to 'SIGN IN', new_user_session_path %></button>
+        <div class="moving-item"></div>
      </div>
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
@@ -13,16 +14,19 @@
     <%= f.input :email,
                 # required: true,
                 autofocus: true,
-                input_html: { autocomplete: "email" }%>
+                input_html: { autocomplete: "email"},
+                label_html: { class: 'input-labels' }%>
     <%= f.input :password,
                 # required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
+                input_html: { autocomplete: "new-password" },
+                label_html: { class: 'input-labels' } %>
     <%= f.input :password_confirmation,
                 # required: true,
-                input_html: { autocomplete: "new-password" } %>
+                input_html: { autocomplete: "new-password" },
+                label_html: { class: 'input-labels' } %>
   </div>
-  <div class="text-center"><p>Engage with the community and get up to 40% off on your next game</p></div>
+  <div class="text-center sign-up-p"><p>Engage with the community and get up to 40% off on your next game</p></div>
   <div class="form-actions text-center">
     <%= f.button :submit, "JOIN NOW", class: "join-button" %>
   </div>
