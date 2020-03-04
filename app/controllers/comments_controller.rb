@@ -4,19 +4,20 @@ class CommentsController < ApplicationController
   end
   def create
     @comment = Comment.new(comment_params)
-    @discussion = Discussion.find(params[:discussion_id])
-    @comment.discussion = @discussion
+    @subdiscussion = SubDiscussion.find(params[:sub_discussion_id])
+    @comment.subdiscussion = @subdiscussion
     if @comment.save
       flash[:notice] = "Commented created succesfully"
-      redirect_to discussion_comments(@comment)
+      redirect_to sub_discussion_comments(@comment)
     else
       render :new
     end
   end
+
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to discussion_comments_path
+    redirect_to sub_discussion_comments_path
   end
   private
 
