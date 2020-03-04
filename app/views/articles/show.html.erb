@@ -1,0 +1,43 @@
+<div class="page-layout">
+  <div class="panel">
+    <h1><%= @article.title %></h1>
+    <p>Published on <%= @article.created_at.strftime('%b. %d %Y') %></p>
+    <br/>
+    <iframe width="500" height="315" src="https://www.youtube.com/watch?v=19gOCrueAkk" frameborder="0" allowfullscreen></iframe>
+    <br/>
+    <p><%= @article.content %></p>
+  </div>
+  <div class="panel">
+    <div class="header-1">
+      <h4><span> <%= @discussions.count %> Questions </span></h3>
+    </div>
+    <div class="header"><p><%="."%></p></div>
+    <br/>
+    <div class="container">
+      <div class="flex-item">
+        <ul>
+        <% @discussions.each do |discussion| %>
+          <li>
+         <p> <%= discussion.title %> </p>
+        <% end %>
+      </div>
+      <div class="flex-item">
+        <% @discussions.each do |discussion| %>
+         <p> <%= discussion.sub_discussions.count %> </p>
+        <% end %>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="header"><p>.</p></div>
+    <br/>
+    <br/>
+    <p style="text-align: center;">Not finding the topic you're looking for?</p>
+    <br/>
+    <div id="new-topic">
+      <a href="something" class="button1">Open a new topic</a>
+    </div>
+  </div>
+</div>
+
