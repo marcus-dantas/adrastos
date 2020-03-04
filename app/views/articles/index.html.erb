@@ -14,7 +14,6 @@
   <!-- Grid of cards showing all the articles -->
   <div class="index-grid">
     <% @articles.each_with_index do |article, index| %>
-    <img src="https://d3tg06jbotvai2.cloudfront.net/game_tetiere/img/diablo-3-reaper-of-souls-img-4.jpg"  alt="">
       <div class='<%= "article-#{index + 1}" %>'>
         <p class="game-title-grid"><%= article.title %></p>
       </div>
