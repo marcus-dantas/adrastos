@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
       redirect_to discussion_comments(@comment)
     else
       render :new
-      raise
+    end
   end
   def destroy
     @comment = Comment.find(params[:id])

@@ -14,9 +14,17 @@
   <div class="index-grid">
     <% @articles.each_with_index do |article, index| %>
       <div class='<%= "article-#{index + 1}" %>'>
-        <%= article.title %>
+        <p class="game-title-grid"><%= article.title %></p>
       </div>
     <% end %>
   </div>
     <!-- Small break in the grid before starting again -->
+  <div class="grid-break-container">
+    <h3 class="grid-break-msg">
+      Help the community and get up to 40%<br>
+       off on your next game
+    </h3>
+    <br>
+    <a href="#" class="join-grid-break-btn">Join the community</a>
+  </div>
 </div>
