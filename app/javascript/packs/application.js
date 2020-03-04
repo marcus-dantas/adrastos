@@ -22,3 +22,15 @@ require("channels")
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
 import "bootstrap";
+
+
+
+document
+  .getElementById("show-button")
+  .addEventListener("click", function(event) {
+    event.preventDefault();
+    document.getElementById("show-button").classList.toggle("d-none")
+    // hide the lorem ipsum text
+    document.getElementById("new-topic").classList.toggle("d-none")
+
+});

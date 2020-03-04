@@ -7,10 +7,12 @@ class ArticlesController < ApplicationController
   def show
     @discussions = Discussion.all
     @subdiscussions = SubDiscussion.all
+    @discussion = Discussion.new
   end
 
   def new
     @article = Article.new
+
   end
 
   def create

@@ -17,7 +17,7 @@ class DiscussionsController < ApplicationController
     @discussion.user_id = current_user.id
     @discussion.article_id = @article.id
     if @discussion.save
-      redirect_to discussion_path(@discussion)
+      redirect_to article_path(@article)
     else
       render :new
     end

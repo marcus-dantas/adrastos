@@ -2,48 +2,43 @@
   <div class="panel">
     <h1><%= @article.title %></h1>
     <p>Published on <%= @article.created_at.strftime('%b. %d %Y') %></p>
-    <br/>
-    <%# <iframe width="500" height="315" src="https://www.youtube.com/watch?v=19gOCrueAkk" frameborder="0" allowfullscreen></iframe> %>
-    <br/>
-    <div class="img-container">
-       <% if @article.photo.attached? %>
-      <%= cl_image_tag @article.photo.key, class: "img-show"%>
-      <% else %>
-       <%= image_tag 'no-image-icon.png'%>
-      <% end %>
-    </div>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/YkXG08_WVsY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <p><%= @article.content %></p>
   </div>
-  <div class="panel">
-    <div class="header-1">
-      <h4><span> <%= @discussions.count %> Questions </span></h3>
-    </div>
-    <div class="header"><p><%="."%></p></div>
-    <br/>
-    <div class="container">
-      <div class="flex-item">
-        <ul>
-        <% @discussions.each do |discussion| %>
-          <li>
-         <p> <%= discussion.title %> </p>
-        <% end %>
-      </div>
-      <div class="flex-item">
-        <% @discussions.each do |discussion| %>
-         <p> <%= discussion.sub_discussions.count %> </p>
-        <% end %>
-          </li>
-        </ul>
-      </div>
 
+  <div class="panel">
+    <div class="category-container">
+      <span class="category"><%= @discussions.count %> Questions</span>
     </div>
-    <div class="header"><p>.</p></div>
-    <br/>
-    <br/>
-    <p style="text-align: center;">Not finding the topic you're looking for?</p>
-    <br/>
-    <div id="new-topic">
-      <a href="something" class="button1">Open a new topic</a>
+    <div class="titles">
+    <span id="title-top">Discussions</span>
+    <span id="sub-title">Sub-Discussions</span>
+    </div>
+    <ul class="topics">
+      <% @discussions.each do |discussion| %>
+        <%= link_to discussion_path(discussion) do %>
+        <li>
+          <span><%= discussion.title %></span>
+          <i><%= discussion.sub_discussions.count %></i>
+        </li>
+        <% end %>
+      <% end %>
+    </ul>
+
+    <div class="cta-topic">
+      <p>Not finding the topic you're looking for?</p>
+      <a href="" class="log-in" id="show-button">Open a new topic</a>
+    </div>
+
+    <div id="new-topic" class="d-none">
+      <div class="hidden-form" id="art-title">
+        <%= simple_form_for ([ @article, Discussion.new ]) do |f| %>
+          <div class="form-inputs title-border">
+            <%= f.input :title, label:'', input_html: { class: 'disc-title' } %>
+          </div>
+          <div>  <%= f.button :submit, "Add It!", class: "log-in" %> </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
