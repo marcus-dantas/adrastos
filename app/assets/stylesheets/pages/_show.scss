@@ -21,41 +21,111 @@
   padding: 40px;
 }
 
-h4 span {
-    background-color: black;
-    color: white;
-    margin: -10px;
+.disc-title {
+  border: 5px solid black;
+  width: 85%;
+  display: inline;
 }
 
-.header {
-  background-color: black;
-  margin: -10px;
-    p {
-    font-size: 4px;
-  }
-}
-.container {
-display: flex;
-margin: -12px;
-padding: 0px;
-}
 .flex-item {
   flex: 0 0 50%;
 }
 ul {
   list-style-type:none;
+  border-bottom: 8px solid black;
+
 }
 
-a.button1 {
-  text-decoration:none;
-  padding:0.50em 1.4em;
-  background-color: black;
-  font-size: 18px;
-  color: white;
-  text-align: center;
+a {
+  text-decoration: none;
 }
 
 
 #new-topic {
   text-align: center;
+}
+
+button#show-button {
+  text-decoration: none;
+}
+
+.category-container {
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    top: 31px;
+    left: 0;
+    background-color: black;
+  }
+}
+
+.category {
+  position: relative;
+  padding: 12px 8px;
+  background-color: black;
+  font-size: 21px;
+  font-family: $title-font;
+  color: white;
+}
+
+.topics {
+  padding: 36px 0;
+  width: 100%;
+
+}
+
+.cta-topic {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title-border {
+  width: 85%;
+}
+
+.d-none {
+  display: flex;
+}
+
+#title-top {
+  top: 25px;
+  position:relative;
+  font-family: $title-font;
+  font-size: 21px;
+}
+
+#sub-title {
+ top: 25px;
+  position:relative;
+  font-family: $title-font;
+font-size: 21px;
+}
+
+.titles {
+display: flex;
+justify-content: space-between;
+}
+
+a span {
+  font-family: $paragraph-font;
+  text-decoration: none;
+  color: black;
+}
+
+a i {
+  font-family: $paragraph-font;
+  text-decoration: none;
+  color: black;
 }
