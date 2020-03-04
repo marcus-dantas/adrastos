@@ -42,7 +42,7 @@ class SubDiscussionController < ApplicationController
   private
 
   def sub_discussion_params
-    params.require(:sub_discussion).permit(:title)
+    params.require(:sub_discussion).permit(:title, :content)
   end
 
   def set_subdiscussion
