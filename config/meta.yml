@@ -1,0 +1,5 @@
+meta_product_name: "Adrastos"
+meta_title: "Adrastos - Gaming platform"
+meta_description: "One stop app for all gamers"
+meta_image: "adrastos_logo.png" # should exist in `app/assets/images/`
+twitter_account: "@Adrastos_app"   # required for Twitter Cards
