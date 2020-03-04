@@ -1,1 +1,102 @@
 // Specific CSS for your home-page
+// Immediately below there is a global selector to reset the margin
+// and padding on all files
+* {
+  background: white;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: white;
+}
+// Specified fonts for titles and paragraphs below
+h1 {
+  font-family: $title-font;
+}
+
+p a {
+  font-family: $paragraph-font;
+}
+
+// The homepage has a padding all around the page to provide space for content
+.mega-container {
+  width: 1140px;
+  margin: 0 auto;
+}
+
+// This will style the main title and the button on the far right
+.main-titles {
+  display: flex;
+  justify-content: space-between;
+  .main-title {
+    font-family: $title-font;
+    font-size: 9.5rem;
+    font-weight: bold;
+  }
+  .join {
+    font-family: $paragraph-font;
+
+  }
+}
+
+.call-to-action {
+  // The two buttons on top of the grid
+  .coming-soon {
+    font-family: $paragraph-font;
+    color: white;
+    background: black;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  .walkthrough {
+    font-family: $paragraph-font;
+    color: black;
+    background: white;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+// Below is the beginning of the grid for the article cards
+.index-grid {
+  display: grid;
+  height: 900px;
+  grid-gap: 8px 8px;
+  background-color: black;
+  border: 8px solid black;
+  .article-1 {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+  }
+  .article-2 {
+    grid-column: 2 / 4;
+    grid-row: 1 / 2;
+  }
+  .article-3 {
+    grid-column: 4 / 5;
+    grid-row: 1 / 2;
+  }
+  .article-4 {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+  }
+  .article-5 {
+    grid-column: 2 / 3;
+    grid-row: 2 / 4;
+  }
+  .article-6 {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+  }
+  .article-7 {
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+  }
+  .article-8 {
+    grid-column: 4 / 5;
+    grid-row: 2 / 4;
+  }
+}

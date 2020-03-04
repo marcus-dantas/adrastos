@@ -12,12 +12,11 @@
   </h4>
   <!-- Grid of cards showing all the articles -->
   <div class="index-grid">
-    <%= @articles.each_with_index.take(8) do |article, index| %>
+    <% @articles.each_with_index do |article, index| %>
       <div class='<%= "article-#{index + 1}" %>'>
-        <%=  %>
+        <%= article.title %>
       </div>
     <% end %>
-    <br>
   </div>
     <!-- Small break in the grid before starting again -->
 </div>
