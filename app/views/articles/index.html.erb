@@ -2,7 +2,8 @@
   <!-- Main title and sign-up button -->
   <div class="main-titles">
     <h1 class="main-title">Adrastos</h1>
-    <p class="join">Join the community</p>
+    <p class="join"><%= link_to "Join the community", new_user_registration_path, class: "join" %></p>
+    <%= link_to "Log out", destroy_user_session_path, method: :delete%>
   </div>
   <br>
   <!-- Two call to action buttons above the grid -->
