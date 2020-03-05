@@ -145,6 +145,10 @@ p a {
   .article-5 {
     grid-column: 2 / 3;
     grid-row: 2 / 4;
+
+    img {
+      object-position: 75%;
+    }
   }
   .article-6 {
     grid-column: 3 / 4;
