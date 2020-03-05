@@ -25,12 +25,19 @@ import "bootstrap";
 
 
 
-document
-  .getElementById("show-button")
-  .addEventListener("click", function(event) {
+const btn = document.getElementById("show-button")
+if (btn) {
+
+  btn.addEventListener("click", function(event) {
     event.preventDefault();
     document.getElementById("show-button").classList.toggle("d-none")
     // hide the lorem ipsum text
     document.getElementById("new-topic").classList.toggle("d-none")
+  })
 
-});
+};
+
+import "controllers"
+
+require("trix")
+require("@rails/actiontext")
