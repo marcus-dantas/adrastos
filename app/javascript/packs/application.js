@@ -23,13 +23,11 @@ require("channels")
 // ----------------------------------------------------
 import "bootstrap";
 
-
 document.addEventListener('turbolinks:load', () => {
   document
   .getElementById("show-button")
   .addEventListener("click", function(event) {
     event.preventDefault();
-    console.log('I am a piece of shit that does not work')
     document.getElementById("show-button").classList.toggle("d-none")
     // hide the lorem ipsum text
     document.getElementById("new-topic").classList.toggle("d-none")
@@ -51,3 +49,8 @@ spans.forEach((span) => {
     document.getElementById(`span_${id}`).classList.remove("d-none")
   })
 })
+
+import "controllers"
+
+require("trix")
+require("@rails/actiontext")
