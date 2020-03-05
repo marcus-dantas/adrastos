@@ -5,10 +5,13 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @subdiscussion = SubDiscussion.find(params[:sub_discussion_id])
-    @comment.subdiscussion = @subdiscussion
+    @comment.sub_discussion = @subdiscussion
+    @comment.user = current_user
+    @discussion = @subdiscussion.discussion
+    @sub_discussions = @discussion.sub_discussions
     if @comment.save
       flash[:notice] = "Commented created succesfully"
-      redirect_to sub_discussion_comments(@comment)
+      render 'discussions/show'
     else
       render :new
     end
@@ -22,6 +25,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    require(:comment).permit(:content)
+    params.require(:comment).permit(:content)
   end
 end

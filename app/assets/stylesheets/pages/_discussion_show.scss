@@ -1,0 +1,41 @@
+.go-back {
+  font-family: $paragraph-font;
+  color: black;
+}
+
+.go-back:hover {
+
+  text-decoration: none;
+
+}
+.com-date {
+  font-size: 12px;
+}
+
+.comm-container {
+  display: flex;
+}
+
+.block {
+  margin-right: 15px;
+  border-top: 5px solid black;
+  border-bottom: 5px solid black;
+  border-right: 5px solid black;
+  border-left: 5px solid black;
+  width: 45px;
+  background-color: gray;
+}
+
+#comm-cont {
+  padding-top: 15px;
+  padding-left: 38px;
+}
+
+.comment-ul {
+  padding-bottom: 50px ;
+}
+
+ul {
+  margin-top: 26px;
+  margin-bottom: 2rem;
+}

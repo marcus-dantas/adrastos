@@ -4,7 +4,9 @@ class DiscussionsController < ApplicationController
     @discussions = Discussion.all
   end
 
-  def show; end
+  def show
+    @sub_discussions = SubDiscussion.all
+  end
 
   def new
     set_article

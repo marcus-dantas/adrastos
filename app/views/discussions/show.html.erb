@@ -1,1 +1,71 @@
-<h1><%= @discussion.title %></h1>
+<div class="page-layout">
+
+<div class="panel">
+    <h1>ADRASTOS</h1>
+    <%= link_to "Go back to Article", article_path(@discussion.article), class: "go-back" %>
+    <h3><%= @discussion.title %></h3>
+    <div class="titles">
+    <span id="title-top">Sub-discussions</span>
+    <span id="sub-title">Answers</span>
+    </div>
+    <ul class="topics sub-list">
+      <% @discussion.sub_discussions.each do |subdiscussion| %>
+        <li>
+          <span class="span-subdiscu" data-subid="<%= subdiscussion.id %>"><%= subdiscussion.title %></span>
+          <i><%= subdiscussion.comments.count %></i>
+        </li>
+        <% end %>
+    </ul>
+    <div class="cta-topic">
+      <p>Not finding the topic you're looking for?</p>
+      <a href="" class="log-in" id="show-button">Open a new topic</a>
+    </div>
+    <div id="new-topic" class="d-none">
+      <div class="hidden-form" id="art-title">
+        <%= simple_form_for ([ @discussion, SubDiscussion.new ]) do |f| %>
+          <div class="form-inputs title-border">
+            <%= f.input :title, label:'', input_html: { class: 'disc-title' } %>
+          </div>
+          <div>  <%= f.button :submit, "Add It!", class: "log-in" %> </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+    <div class="panel">
+
+    <% @sub_discussions.each do |subdiscussion| %>
+      <div class="d-none sub-comments" id="span_<%= subdiscussion.id %>">
+       <h1> <%= subdiscussion.title %> </h1>
+          <span> Open since <%= subdiscussion.created_at.strftime('%b. %d %Y') %> </span>
+          <% subdiscussion.comments.each do |comment| %>
+          <ul id="comment-ul">
+          <div class="comm-container">
+            <div class="block">
+
+            </div>
+            <div class="content">
+              <li> <h5> <%= comment.user.nickname %></h5> </li>
+              <li class="com-date"> <%= comment.created_at.strftime('%b. %d %Y') %></li>
+
+            </div>
+          </div>
+              <li id="comm-cont"><%= comment.content %></li>
+          </ul>
+          <% end %>
+       <div class="hidden-form" id="art-title">
+        <%= simple_form_for ([ subdiscussion, Comment.new ]) do |f| %>
+          <div class="form-inputs title-border">
+            <%= f.input :content, label:'', input_html: { class: 'disc-title' } %>
+          </div>
+          <div>  <%= f.button :submit, "Send It!", class: "log-in" %> </div>
+        <% end %>
+      </div>
+      </div>
+    <% end %>
+
+
+
+
+    </div>
+
+</div>

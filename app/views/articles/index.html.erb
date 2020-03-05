@@ -1,16 +1,30 @@
 <div class="mega-container">
-  <h1 class="main-title ">Adrastos</h1>
+<!--   <h1 class="main-title ">Adrastos</h1> -->
+  <!-- Main title and sign-up button -->
+  <div class="main-titles">
+    <img src="<%= asset_url("adrastos_logo.svg") %>" alt="Adrastos logo image" class="main-title">
+<!--     <div class="right-most-btn">
+      <#% if user_signed_in? %>
+        <span class="join"><#%= link_to "Log out", destroy_user_session_path, method: :delete %></span>
+        <#% else %>
+        <span class="join"><#%= link_to "Join the community", new_user_registration_path %></span>
+        <span class="join"><#%= link_to "- Sign in", new_user_session_path %></span>
+      <#% end %>
+    </div> -->
+  </div>
+  <br>
   <!-- Two call to action buttons above the grid -->
   <h4 class="call-to-action">
-    <a href="#" class="coming-soon">Coming soon</a>
-    <a href="#" class="walkthrough">Walkthrough</a>
+    <%= link_to "Create Article", new_article_path, class: "coming-soon" %>
+    <%= link_to "Walkthrough", articles_path, class: "walkthrough" %>
   </h4>
   <!-- Grid of cards showing all the articles -->
   <div class="index-grid">
     <% @articles.each_with_index do |article, index| %>
-      <div class='<%= "article-#{index + 1}" %>'>
-        <p class="game-title-grid"><%= article.title %></p>
-      </div>
+      <%= link_to article_path(article), class: "article-#{index + 1} article game-title-grid" do %>
+          <img src="<%= article.photo_url %>" alt="Game cover photo">
+          <p class="game-title-grid"><%= article.title %></p>
+      <% end %>
     <% end %>
   </div>
     <!-- Small break in the grid before starting again -->
@@ -19,5 +33,7 @@
       Help the community and get up to 40%<br>
        off on your next game
     </h3>
+<!--     <br>
+    <#%= link_to "Join the community", new_user_session_path, class: "join-grid-break-btn" %> -->
   </div>
 </div>
