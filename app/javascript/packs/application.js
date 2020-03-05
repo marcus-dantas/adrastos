@@ -23,14 +23,31 @@ require("channels")
 // ----------------------------------------------------
 import "bootstrap";
 
-
-
-document
+document.addEventListener('turbolinks:load', () => {
+  document
   .getElementById("show-button")
   .addEventListener("click", function(event) {
     event.preventDefault();
+    console.log('I am a piece of shit that does not work')
     document.getElementById("show-button").classList.toggle("d-none")
     // hide the lorem ipsum text
     document.getElementById("new-topic").classList.toggle("d-none")
 
 });
+})
+
+
+const spans = document.querySelectorAll(".span-subdiscu");
+spans.forEach((span) => {
+  span.addEventListener("click", (event) => {
+    document.querySelectorAll(".sub-comments").forEach((subComment) => {
+      if (subComment.classList.contains("d-none")) {
+
+      } else {
+        subComment.classList.add("d-none")
+      }
+    });
+    let id = event.currentTarget.dataset.subid;
+    document.getElementById(`span_${id}`).classList.remove("d-none")
+  })
+})
