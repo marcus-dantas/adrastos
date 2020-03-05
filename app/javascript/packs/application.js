@@ -24,67 +24,6 @@ require("channels")
 import "bootstrap";
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 document.addEventListener('turbolinks:load', () => {
   document
   .getElementById("show-button")
@@ -94,8 +33,7 @@ document.addEventListener('turbolinks:load', () => {
     document.getElementById("show-button").classList.toggle("d-none")
     // hide the lorem ipsum text
     document.getElementById("new-topic").classList.toggle("d-none")
-
-});
+  });
 })
 
 
