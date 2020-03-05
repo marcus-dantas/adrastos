@@ -1,4 +1,4 @@
-class SubDiscussionController < ApplicationController
+class SubDiscussionsController < ApplicationController
   before_action :set_subdiscussion, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -17,7 +17,7 @@ class SubDiscussionController < ApplicationController
     @sub_discussion = SubDiscussion.new(sub_discussion_params)
     @sub_discussion.discussion = @discussion
     if @sub_discussion.save
-      redirect_to sub_discussion_path(@sub_discussion.id)
+      redirect_to discussion_path(@discussion)
     else
       render :new
     end
