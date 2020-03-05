@@ -29,15 +29,25 @@ p a {
 .main-titles {
   display: flex;
   justify-content: space-between;
+  margin-top: 80px;
   .main-title {
     font-family: $title-font;
     font-size: 9.5rem;
     font-weight: bold;
+    margin-bottom: 40px;
   }
-  .join {
-    font-family: $title-font;
-    margin-top: 25px;
-    font-size: 30px;
+  .right-most-btn{
+    margin-top: 15px;
+    .join {
+      font-family: $title-font;
+      font-size: 30px;
+    }
+    a {
+      color: black;
+      &:hover {
+        text-decoration: none;
+      }
+    }
   }
 }
 
@@ -79,14 +89,46 @@ p a {
   grid-gap: 8px 8px;
   background-color: black;
   border: 8px solid black;
-  .game-title-grid {
-    color: white;
-    font-family: $title-font;
-    font-size: 20px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
+
+  .article {
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background: linear-gradient(0deg, rgba(0,0,0,0.6) 15%, rgba(0,0,0,0) 60%);
+      z-index: 1;
+    }
+
+    .game-title-grid {
+      position: absolute;
+      margin: 0;
+      padding: 0 16px;
+      bottom: 0;
+      color: white;
+      font-family: $title-font;
+      font-size: 32px;
+      background: transparent;
+      z-index: 2;
+    }
+  }
+
   .article-1 {
     grid-column: 1 / 2;
     grid-row: 1 / 3;
+
+    img {
+      object-position: 18%;
+    }
   }
   .article-2 {
     grid-column: 2 / 4;
