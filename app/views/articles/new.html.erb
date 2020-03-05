@@ -1,15 +1,17 @@
 <div class="container">
   <div class="row justify-content-center article-container">
-  <div class="col-lg-8">
-    <%= simple_form_for @article do |f| %>
-      <%= f.input :title, label: "Article title", label_html: { class: 'article-labels' }, input_html: { class: 'article-input' }  %>
-      <%= f.input :content, as: :text, label_html: { class: 'article-labels' }, input_html: { class: 'article-input', rows: 7 } %>
-      <%= f.input :photo, as: :file,
-                  label: 'Upload Attachment',
-                  label_html: { class: 'photo-label' },
-                  input_html: { class: 'photo-input' } %>
-      <%= f.submit "Submit",  class: "article-submit" %>
-    <% end %>
-</div>
-</div>
+    <div class="col-lg-8 col-sm-6">
+      <div class="article-title">
+        <%= form_for(@article) do |f| %>
+        <%= f.label :title, class: "article-title-labels", value: "Article title"%>
+        <%= f.text_field :title, class: "article-input"%>
+      </div>
+      <div class="article-content">
+        <%= f.label :body, class: "article-labels" %>
+        <%= f.rich_text_area :body, class: "article-input", rows: 40%>
+        <%= f.submit "Create Article", class: "article-submit" %>
+      <% end %>
+      </div>
+    </div=>
+  </div>
 </div>
