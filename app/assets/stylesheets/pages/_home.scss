@@ -26,30 +26,34 @@ p a {
 }
 
 // This will style the main title and the button on the far right
-.main-titles {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 80px;
+// .main-titles {
+//   display: flex;
+//   justify-content: space-between;
+//   margin-top: 80px;
   .main-title {
     font-family: $title-font;
     font-size: 9.5rem;
     font-weight: bold;
-    margin-bottom: 40px;
-  }
-  .right-most-btn{
-    margin-top: 15px;
-    .join {
-      font-family: $title-font;
-      font-size: 30px;
-    }
-    a {
-      color: black;
-      &:hover {
-        text-decoration: none;
-      }
-    }
-  }
-}
+  .join {
+    font-family: $title-font;
+    margin-top: 25px;
+    font-size: 30px;
+//     margin-bottom: 40px;
+//   }
+//   .right-most-btn{
+//     margin-top: 15px;
+//     .join {
+//       font-family: $title-font;
+//       font-size: 30px;
+//     }
+//     a {
+//       color: black;
+//       &:hover {
+//         text-decoration: none;
+//       }
+//     }
+//   }
+//   }
 
 .call-to-action {
   // The two buttons on top of the grid

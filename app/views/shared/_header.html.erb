@@ -1,0 +1,22 @@
+ <div class="main-header">
+  <%= link_to "/", class: "logo" do %>
+    <%= image_tag "logoa.jpg" %>
+    <% end %>
+      <% if user_signed_in? %>
+        <li class="dropdown">
+          <% if current_user.avatar.attached? %>
+          <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "avatarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%end%>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="avatarDropdown">
+            <%= link_to "Your posts", "#", class: "dropdown-item" %>
+            <%= link_to "Edit your profile", edit_user_registration_path, class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </li>
+      <% else %>
+        <div class="session">
+          <%= link_to "Join the community", new_user_registration_path, class: "join mb-1" %>
+          <%= link_to "Login", new_user_session_path, class: "login mb-1" %>
+        </div>
+      <% end %>
+  </div>

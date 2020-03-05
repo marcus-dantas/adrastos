@@ -1,0 +1,51 @@
+.main-header {
+  // width: 1140px;
+  // margin: 20px auto;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  .avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 0%;
+    border: 5px solid black;
+  }
+  .session {
+    display: flex;
+    flex-direction: column;
+  }
+  .login{
+    background-color: white;
+    text-align: center;
+    color: black;
+    padding: 3px 3px;
+    font-family: $title-font;
+    font-size: 17px;
+    border: 4px solid black;
+    font-weight: 600;
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+    }
+    .join {
+    background-color: white;
+    text-align: center;
+    color: black;
+    padding: 4px 4px;
+    font-family: $title-font;
+    font-size: 17px;
+    border: 4px solid black;
+    font-weight: 600;
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+    }
+    .logo img {
+      width: 80px;
+      height: 80px;
+    }
+  }
+
+
