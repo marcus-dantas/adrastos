@@ -24,31 +24,32 @@ require("channels")
 import "bootstrap";
 
 document.addEventListener('turbolinks:load', () => {
-  document
-  .getElementById("show-button")
-  .addEventListener("click", function(event) {
-    event.preventDefault();
-    document.getElementById("show-button").classList.toggle("d-none")
-    // hide the lorem ipsum text
-    document.getElementById("new-topic").classList.toggle("d-none")
-  });
-})
-
-
-const spans = document.querySelectorAll(".span-subdiscu");
-spans.forEach((span) => {
-  span.addEventListener("click", (event) => {
-    document.querySelectorAll(".sub-comments").forEach((subComment) => {
-      if (subComment.classList.contains("d-none")) {
-
-      } else {
-        subComment.classList.add("d-none")
-      }
+  const showBtn = document.getElementById("show-button")
+  if (showBtn) {
+    showBtn.addEventListener("click", function(event) {
+      event.preventDefault();
+      document.getElementById("show-button").classList.toggle("d-none")
+      // hide the lorem ipsum text
+      document.getElementById("new-topic").classList.toggle("d-none")
     });
-    let id = event.currentTarget.dataset.subid;
-    document.getElementById(`span_${id}`).classList.remove("d-none")
-  })
+  }
 })
+
+
+    const spans = document.querySelectorAll(".span-subdiscu");
+    spans.forEach((span) => {
+      span.addEventListener("click", (event) => {
+        document.querySelectorAll(".sub-comments").forEach((subComment) => {
+          if (subComment.classList.contains("d-none")) {
+
+          } else {
+            subComment.classList.add("d-none")  
+          }
+        });
+        let id = event.currentTarget.dataset.subid;
+        document.getElementById(`span_${id}`).classList.remove("d-none")
+      })
+    })
 
 import "controllers"
 
