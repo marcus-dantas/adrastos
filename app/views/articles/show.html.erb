@@ -15,7 +15,7 @@
     <span id="sub-title">Sub-Discussions</span>
     </div>
     <ul class="topics">
-      <% @discussions.each do |discussion| %>
+      <% @article.discussions.each do |discussion| %>
         <%= link_to discussion_path(discussion) do %>
         <li>
           <span><%= discussion.title %></span>
