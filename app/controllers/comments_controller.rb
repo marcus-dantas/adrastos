@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     @discussion = @subdiscussion.discussion
     @sub_discussions = @discussion.sub_discussions
+    @selected = @subdiscussion.id
     if @comment.save
       flash[:notice] = "Commented created succesfully"
       render 'discussions/show'
