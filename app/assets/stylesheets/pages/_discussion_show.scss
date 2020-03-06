@@ -63,5 +63,30 @@ ul {
 .span-subdiscu {
   &:hover {
     cursor: pointer;
+    background: black;
+    color: white;
+    span, i {
+      color: white;
+      background: black
+    }
   }
+}
+
+
+.disc-layout {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  &:before {
+    content: "";
+    position: fixed;
+    width: 8px;
+    height: 100vh;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+  }
+
 }

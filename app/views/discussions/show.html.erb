@@ -1,4 +1,4 @@
-<div class="page-layout">
+<div class="disc-layout">
 
 <div class="panel">
     <h1>ADRASTOS</h1>
@@ -34,7 +34,7 @@
     <div class="panel">
 
     <% @sub_discussions.each do |subdiscussion| %>
-      <div class="d-none sub-comments" id="span_<%= subdiscussion.id %>">
+      <div class="sub-comments <%= 'd-none' if subdiscussion.id != @selected %>" id="span_<%= subdiscussion.id %>">
        <h1> <%= subdiscussion.title %> </h1>
           <span> Open since <%= subdiscussion.created_at.strftime('%b. %d %Y') %> </span>
           <% subdiscussion.comments.each do |comment| %>
@@ -53,7 +53,7 @@
           </ul>
           <% end %>
        <div class="hidden-form" id="art-title">
-        <%= simple_form_for ([ subdiscussion, Comment.new ]) do |f| %>
+        <%= simple_form_for([ subdiscussion, Comment.new ], html: { id: "discussion_#{subdiscussion.id}"}) do |f| %>
           <div class="form-inputs title-border">
             <%= f.input :content, label:'', input_html: { class: 'disc-title' } %>
           </div>
@@ -69,3 +69,14 @@
     </div>
 
 </div>
+
+<!-- <script>
+  var forms = document.querySelectorAll('.simple_form.new_comment');
+  forms.forEach(form => {
+    form.addEventListener('submit', e => {
+      // e.preventDefault();
+      const comment = e.target.elements[0].value;
+
+    })
+  })
+</script> -->
