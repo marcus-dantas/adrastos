@@ -8,6 +8,19 @@
 .article-title-labels {
   font-family: $paragraph-font;
 }
+
+.article-img {
+  max-width: 70%;
+  padding: 20px;
+}
+#back-button {
+  width: auto;
+  float: right;
+  font-family: $title-font;
+  // color: white;
+  text-decoration: none;
+
+}
 // .photo-input {
 //   // border: 5px solid black; 
 //   // width: 100%;
