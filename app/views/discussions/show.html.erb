@@ -10,7 +10,7 @@
     </div>
     <ul class="topics sub-list">
       <% @discussion.sub_discussions.each do |subdiscussion| %>
-        <li>
+        <li class="subdiscu-pointer">
           <span class="span-subdiscu" data-subid="<%= subdiscussion.id %>"><%= subdiscussion.title %></span>
           <i><%= subdiscussion.comments.count %></i>
         </li>
