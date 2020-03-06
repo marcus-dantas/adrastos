@@ -2,13 +2,15 @@
   <div class="panel">
     <h1><%= @article.title %></h1>
     <p>Published on <%= @article.created_at.strftime('%b. %d %Y') %></p>
-    <%# <iframe width="560" height="315" src="https://www.youtube.com/embed/YkXG08_WVsY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> %>
-    <p><%= @article.body %></p>
+    <img src="https://i.pinimg.com/originals/ae/0a/08/ae0a08e1a73916f5afa8868c43f34b77.jpg" alt="Grand Theft Auto 5 cover image" class="article-main-img">
+    <div class="article-show-content">
+      <p><%= @article.content %></p>
+    </div>
   </div>
 
   <div class="panel">
     <div class="category-container">
-      <span class="category"><%= @discussions.count %> Questions</span>
+      <span class="category"><%= @article.discussions.count %> Questions</span>
     </div>
     <div class="titles">
     <span id="title-top">Discussions</span>
@@ -16,11 +18,13 @@
     </div>
     <ul class="topics">
       <% @article.discussions.each do |discussion| %>
-        <%= link_to discussion_path(discussion) do %>
-        <li>
-          <span><%= discussion.title %></span>
-          <i><%= discussion.sub_discussions.count %></i>
-        </li>
+        <div >
+          <%= link_to discussion_path(discussion), class: "discussion-list-title" do %>
+          <li class="discussion-button-hover">
+            <span><%= discussion.title %></span>
+            <i><%= discussion.sub_discussions.count %></i>
+          </li>
+        </div>
         <% end %>
       <% end %>
     </ul>
@@ -34,7 +38,7 @@
       <div class="hidden-form" id="art-title">
         <%= simple_form_for ([ @article, Discussion.new ]) do |f| %>
           <div class="form-inputs title-border">
-            <%= f.input :title, label:'', input_html: { class: 'disc-title' } %>
+            <%= f.input :title, label:'', input_html: { class: 'enter-discussion' } %>
           </div>
           <div>  <%= f.button :submit, "Add It!", class: "log-in" %> </div>
         <% end %>
