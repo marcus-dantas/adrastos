@@ -1,6 +1,9 @@
 <div class="container">
   <div class="row justify-content-center article-container">
     <div class="col-lg-8 col-sm-6">
+      <div class="article-logo text-center">
+        <%= image_tag "adrastos_logo.svg", class: "article-img" %>
+      </div>
       <div class="article-title">
         <%= form_for(@article) do |f| %>
         <%= f.label :title, class: "article-title-labels", value: "Article title"%>
@@ -11,7 +14,9 @@
         <%= f.rich_text_area :body, class: "article-input", rows: 40%>
         <%= f.submit "Create Article", class: "join-button" %>
       <% end %>
+      
+       <%= link_to "Back",  root_path  , class: "join-button", id: "back-button"%>
       </div>
-    </div=>
+    </div>
   </div>
 </div>
