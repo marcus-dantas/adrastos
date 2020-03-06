@@ -2,7 +2,7 @@
   <div class="panel">
     <h1><%= @article.title %></h1>
     <p>Published on <%= @article.created_at.strftime('%b. %d %Y') %></p>
-    <img src="https://i.pinimg.com/originals/ae/0a/08/ae0a08e1a73916f5afa8868c43f34b77.jpg" alt="Grand Theft Auto 5 cover image" class="article-main-img">
+    <img src="<%= @article.photo_url %>" alt="cover image" class="article-main-img">
     <div class="article-show-content">
       <p><%= @article.content %></p>
     </div>
