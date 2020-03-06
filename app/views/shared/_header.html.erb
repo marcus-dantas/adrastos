@@ -6,6 +6,8 @@
         <li class="dropdown">
           <% if current_user.avatar.attached? %>
           <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "avatarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+          <%= image_tag "empty.jpg", class: "avatar dropdown-toggle", id: "avatarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <%end%>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="avatarDropdown">
             <%= link_to "Your posts", "#", class: "dropdown-item" %>
@@ -15,8 +17,12 @@
         </li>
       <% else %>
         <div class="session">
-          <%= link_to "Join the community", new_user_registration_path, class: "join mb-1" %>
-          <%= link_to "Login", new_user_session_path, class: "login mb-1" %>
+          <span><%= link_to "JOIN NOW", new_user_registration_path, class: "join" %></span>
+          <span><%= link_to "Log in", new_user_session_path, class: "login" %></span>
         </div>
+     <!--    <div class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" class="join">Join NOW</button>
+          <button type="button" class="login">Log in</button>
+        </div> -->
       <% end %>
   </div>
