@@ -22,7 +22,7 @@
     <ul class="topics">
       <% @article.discussions.each do |discussion| %>
         <div >
-          <%= link_to discussion_path(discussion), class: "discussion-list-title" do %>
+          <%= link_to discussion_path(discussion), data: { turbolinks: :false }, class: "discussion-list-title" do %>
           <li class="discussion-button-hover">
             <span><%= discussion.title %></span>
             <i><%= discussion.sub_discussions.count %></i>
