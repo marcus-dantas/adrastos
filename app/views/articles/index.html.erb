@@ -14,10 +14,24 @@
   </div>
   <br>
   <!-- Two call to action buttons above the grid -->
-  <h4 class="call-to-action">
-    <%= link_to "Create Article", new_article_path, class: "coming-soon", data: { turbolinks: false }%>
-    <%= link_to "Walkthrough", articles_path, class: "walkthrough" %>
-  </h4>
+  <div class="headers-home-container">
+    <h4 class="call-to-action">
+      <%= link_to "Create Article", new_article_path, class: "coming-soon", data: { turbolinks: false }%>
+      <%= link_to "Walkthrough", articles_path, class: "walkthrough" %>
+    </h4>
+    <div class="search-bar-cont">
+      <%= form_tag articles_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "search-bar-input",
+        placeholder: "Find an article"
+      %>
+      <%= submit_tag "Search", class: "search-button" %>
+      <% end %>
+    </div>
+  </div>
+
+
   <!-- Grid of cards showing all the articles -->
   <div class="index-grid">
     <% @articles.each_with_index do |article, index| %>

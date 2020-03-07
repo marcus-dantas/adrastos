@@ -190,3 +190,38 @@ p a {
     }
   }
 }
+.search-bar-input {
+  border: 3px solid black;
+  width: 300px;
+  padding: 8px;
+  height: 40px;
+}
+
+.search-bar-cont {
+  display: flex;
+
+}
+
+.headers-home-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-button {
+  // top: 50%;
+  // left: 40%;
+  text-decoration: none !important;
+  font-family: $title-font;
+  color: white;
+  background-color: black;
+  padding: 5px 40px;
+  font-size: 24px;
+  border: 5px solid white;
+
+  &:hover {
+    background-color: white;
+    color: black;
+    border: 5px solid black;
+    transition: ease 0.5s;
+  }
+}
