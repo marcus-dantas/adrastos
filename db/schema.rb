@@ -82,7 +82,6 @@ ActiveRecord::Schema.define(version: 2020_03_05_110843) do
     t.bigint "discussion_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.text "content"
     t.index ["discussion_id"], name: "index_sub_discussions_on_discussion_id"
   end
 

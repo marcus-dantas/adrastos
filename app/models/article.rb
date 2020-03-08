@@ -1,4 +1,5 @@
 class Article < ApplicationRecord
+  acts_as_votable
   belongs_to :user
   has_many :discussions, dependent: :destroy
   has_one_attached :photo
