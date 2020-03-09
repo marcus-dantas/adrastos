@@ -7,7 +7,8 @@
    color: rgb(77, 73, 73);
    text-decoration: none;
   //  text-shadow: 0px 1px black;
- 
+ }
+}
  .delete-article {
    font-size: 16px ;
     i:hover {
@@ -41,29 +42,9 @@
    align-items: center;
  }
 
-<<<<<<< HEAD
-.edit-article {
-  font-size: 16px ;
-  i:hover {
-  background: white;
-  color: black;
-  font-weight: bold;
-}
-}
 
-.user-profile {
-  width: 700px;
-  margin: 0 auto;
-  padding: 0px;
-  text-align: center;
-}
 
-.user-profile li {
-  align-items: center;
-}
-=======
  .edit-profile {
     display: flex;
     justify-content: space-between;
  }
->>>>>>> 0308e0bfec19abd2b593ce78f61c3bd713f6142c
