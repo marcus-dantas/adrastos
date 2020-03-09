@@ -36,8 +36,13 @@
   <div class="index-grid">
     <% @articles.each_with_index do |article, index| %>
       <%= link_to article_path(article), class: "article-#{index + 1} article game-title-grid" do %>
-          <img src="<%= article.photo_url %>" alt="Game cover photo">
+        <% if article.photo.attached? %>
+          <%= cl_image_tag article.photo.key %>
           <p class="game-title-grid"><%= article.title %></p>
+        <% else %>
+          <img src="<%= article.photo_url %>" alt="cover image">
+          <p class="game-title-grid"><%= article.title %></p>
+        <% end %>
       <% end %>
     <% end %>
   </div>
