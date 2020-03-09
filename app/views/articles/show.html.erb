@@ -9,15 +9,20 @@
 <% end %>
 
     <div class="article-show-content">
+
       <p><%= @article.body %></p>
+      <% if @article.body.empty? %>
+          <p><%= @article.content %> </p>
+        <% end %>
+
     </div>
     <div class="d-flex justify-content-center">
       <div class="home-link d-flex justify-content-center"> <%= link_to "Back", root_path, class: "back-button"%></div>
-      <%= link_to like_article_path(@article), class: "like-btn", method: :put do %>
+      <%= link_to like_article_path(@article), class: "articles-like", method: :put do %>
         <i class="fas fa-chevron-circle-up"></i>
         <%= @article.get_upvotes.size %>
       <% end %>
-      <%= link_to dislike_article_path(@article), class: "like-btn", method: :put do %>
+      <%= link_to dislike_article_path(@article), class: "articles-like", method: :put do %>
         <i class="fas fa-chevron-circle-down"></i>
         <%= @article.get_downvotes.size %>
       <% end %>
