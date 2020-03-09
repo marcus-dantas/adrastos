@@ -2,7 +2,18 @@ class ArticlesController < ApplicationController
   before_action :find_article, only: [ :show, :edit, :update, :destroy, :upvote, :downvote ]
   skip_before_action :authenticate_user!, only: [:index]
   def index
-    @articles = Article.all.first(8)
+      if params[:query].present?
+      @articles = Article.where("title ILIKE ?", "%#{params[:query]}%")
+        if @articles.exists?
+          @articles
+        end
+      @discussion = Discussion.where("title ILIKE ?", "%#{params[:query]}%")
+        if @discussion.exists?
+          @articles = Article.joins(:discussions).where("discussions.title ILIKE ?", "%#{params[:query]}%")
+        end
+    else
+      @articles = Article.all.first(8)
+    end
   end
 
   def show
