@@ -2,6 +2,9 @@
   <div class="panel">
     <h1><%= @article.title %></h1>
     <p>Published on <%= @article.created_at.strftime('%b. %d %Y') %></p>
+<!--     <img src="<#%= @article.photo_url %>" alt="Grand Theft Auto 5 cover image" class="article-main-img">
+    <div class="article-show-content">
+      <p><#%= @article.body %></p> -->
 <% if @article.photo.attached? %>
     <%= cl_image_tag @article.photo.key, class: "article-main-img" %>
 <% else %>
