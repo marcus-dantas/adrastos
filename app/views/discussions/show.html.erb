@@ -2,7 +2,6 @@
 
 <div class="panel">
     <h1>ADRASTOS</h1>
-    <%= link_to "Go back to Article", article_path(@discussion.article), class: "go-back" %>
     <h3><%= @discussion.title %></h3>
     <div class="titles">
     <span id="title-top">Sub-discussions</span>
@@ -10,8 +9,8 @@
     </div>
     <ul class="topics sub-list">
       <% @discussion.sub_discussions.each do |subdiscussion| %>
-        <li class="subdiscu-pointer">
-          <span class="span-subdiscu" data-subid="<%= subdiscussion.id %>"><%= subdiscussion.title %></span>
+        <li class="subdiscu-pointer span-subdiscu" data-subid="<%= subdiscussion.id %>">
+          <span><%= subdiscussion.title %></span>
           <i><%= subdiscussion.comments.count %></i>
         </li>
         <% end %>
@@ -20,6 +19,7 @@
       <p>Not finding the topic you're looking for?</p>
       <a href="" class="log-in" id="show-button">Open a new topic</a>
     </div>
+    <div class="home-link d-flex justify-content-center"> <%= link_to "Back", article_path(@discussion.article), class: "back-button ml-3"%></div>
     <div id="new-topic" class="d-none">
       <div class="hidden-form" id="art-title">
         <%= simple_form_for ([ @discussion, SubDiscussion.new ]) do |f| %>

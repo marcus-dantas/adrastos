@@ -57,12 +57,6 @@ ul {
   line-height: 2;
   &:hover {
     cursor: pointer;
-  }
-}
-
-.span-subdiscu {
-  &:hover {
-    cursor: pointer;
     background: black;
     color: white;
     span, i {
@@ -71,6 +65,12 @@ ul {
     }
   }
 }
+
+// .span-subdiscu {
+//   &:hover {
+//     cursor: pointer;
+//   }
+// }
 
 
 .disc-layout {
