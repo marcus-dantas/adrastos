@@ -8,11 +8,15 @@
   text-decoration: none;
 
 }
+.test2 {
+  border-bottom: 1px solid black;
+}
 .com-date {
   font-size: 12px;
 }
 
 .comm-container {
+  padding-top: 5px;
   display: flex;
 }
 
@@ -115,3 +119,9 @@ ul {
   }
 }
 
+.avatar-comment {
+  width: 40px;
+  height: 40px;
+  margin-right: 7px;
+  border: 2px solid black;
+}
