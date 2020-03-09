@@ -49,7 +49,17 @@
 
             </div>
           </div>
+            <div class="voting-container_<%= comment.id %>">
               <li id="comm-cont"><%= comment.content %></li>
+              <%= link_to like_sub_discussion_comment_path(subdiscussion, comment), id: "vote_#{comment.id}", class: "like-btn", method: :put, remote: true, data: { turbolinks: :false }, style: "#{current_user.voted_up_on?(comment) ? 'pointer-events: none' : ''}" do %>
+                <i class="fas fa-chevron-circle-up"></i>
+                <%= comment.get_upvotes.size %>
+              <% end %>
+              <%= link_to dislike_sub_discussion_comment_path(subdiscussion, comment), id: "vote_#{comment.id}", class: "like-btn", method: :put, remote: true, data: { turbolinks: :false }, style: "#{current_user.voted_down_on?(comment) ? 'pointer-events: none' : ''}" do %>
+                <i class="fas fa-chevron-circle-down"></i>
+                <%= comment.get_downvotes.size %>
+              <% end %>
+            </div>
           </ul>
           <% end %>
        <div class="hidden-form" id="art-title">
