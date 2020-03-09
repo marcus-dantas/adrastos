@@ -32,7 +32,7 @@
   margin-left: auto;
   margin-right: auto;
   width: 95%;
-  // border: 4px solid black;
+  border: 4px solid black;
 }
 
 .article-show-content {
@@ -229,26 +229,30 @@ a i {
   width: 95%;
 }
 
-.articles-like {
+.like-btn {
   margin-top: 30px;
   margin-right: 20px;
   color: black;
   text-align: center;
-  font-size: 25px;
+  font-size: 20px;
   font-family: $paragraph-font;
-  height:80px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-
+  i {
+  font-size: 30px;
   &:hover {
     text-decoration: none;
     background: black;
     color: white;
-
-    i {
-    font-size: 25px;
+  }
+  }
+  &:hover {
+    text-decoration: none;
+    background: black;
     color: white;
-    background: black
-   }
+  }
+}
+
+.log-in {
+  &:hover {
+    text-decoration: none;
   }
 }
