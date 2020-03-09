@@ -1,5 +1,5 @@
 .user-article-link {
- font-size: 30px;
+ font-size: 24px;
  font-family: $paragraph-font;
  color: Black;
  padding: 0px 15px;
@@ -30,4 +30,15 @@
   color: black;
   font-weight: bold;
 }
+}
+
+.user-profile {
+  width: 700px;
+  margin: 0 auto;
+  padding: 0px;
+  text-align: center;
+}
+
+.user-profile li {
+  align-items: center;
 }

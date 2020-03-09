@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row justify-content-center article-container">
+    <div class="col-lg-8 col-sm-6">
+      <div class="article-logo text-center">
+        <%= image_tag "adrastos_logo.svg", class: "article-img" %>
+      </div>
+      <div class="article-title">
+        <%= form_for(@article) do |f| %>
+        <%= f.label :title, class: "article-title-labels", value: "Article title"%>
+        <%= f.text_field :title, class: "article-input"%>
+      </div>
+      <div class="article-content">
+        <%= f.label :body, class: "article-labels" %>
+        <%= f.rich_text_area :body, class: "article-input", rows: 40%>
+        <%= f.submit "Update Article", class: "join-button" %>
+        <%= f.label :photo, "Update cover photo", class: "photo-label" %>
+        <%= f.file_field :photo, direct_upload: true, class: "photo-input"%>
+      <% end %>
+        
+       <%= link_to "Back",  url_for(:back)  , class: "join-button", id: "back-button"%>
+      </div>
+    </div>
+  </div>
+</div>
