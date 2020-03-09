@@ -1,0 +1,26 @@
+// var upVoteChange = document.querySelector(".like-btn")
+var upVote = document.getElementById("vote_<%= @comment.id %>")
+var upVoteChange = document.getElementById("vote_<%= @comment.id %>").innerText
+value = parseInt(upVoteChange, 10)
+upVote.innerHTML = `<i class="fas fa-chevron-circle-up"></i> ${value + 1}`
+
+document.querySelector(".voting-container_<%= @comment.id %>").innerHTML = ''
+document.querySelector(".voting-container_<%= @comment.id %>").insertAdjacentHTML('afterbegin',
+  `
+    <li id="comm-cont"><%= @comment.content %></li>
+    <%= link_to like_sub_discussion_comment_path(@subdiscussion, @comment), id: "vote_#{@comment.id}", class: "like-btn", method: :put, remote: true, data: { turbolinks: :false }, style: "#{current_user.voted_up_on?(@comment) ? 'pointer-events: none' : ''}" do %>
+      <i class="fas fa-chevron-circle-up"></i>
+      <%= @comment.get_upvotes.size %>
+    <% end %>
+    <%= link_to dislike_sub_discussion_comment_path(@subdiscussion, @comment), id: "vote_#{@comment.id}", class: "like-btn", method: :put, remote: true, data: { turbolinks: :false }, style: "#{current_user.voted_down_on?(@comment) ? 'pointer-events: none' : ''}" do %>
+      <i class="fas fa-chevron-circle-down"></i>
+      <%= @comment.get_downvotes.size %>
+    <% end %>
+  `)
+
+
+// if (upVoteChange === "1") {
+//   upvote = "0";
+// } else {
+//   upvote = "1";
+// }

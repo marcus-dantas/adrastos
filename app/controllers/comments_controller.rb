@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   def new
     @comment = Comment.new
   end
+
   def create
     @comment = Comment.new(comment_params)
     @subdiscussion = SubDiscussion.find(params[:sub_discussion_id])
@@ -9,6 +10,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     @discussion = @subdiscussion.discussion
     @sub_discussions = @discussion.sub_discussions
+    @selected = @subdiscussion.id
     if @comment.save
       flash[:notice] = "Commented created succesfully"
       render 'discussions/show'
@@ -22,9 +24,24 @@ class CommentsController < ApplicationController
     @comment.destroy
     redirect_to sub_discussion_comments_path
   end
+
+  def upvote
+    @comment = Comment.find(params[:id])
+    @subdiscussion = @comment.sub_discussion
+    @comment.upvote_by current_user
+    # redirect_back fallback_location: '/', allow_other_host: false
+  end
+
+  def downvote
+    @comment = Comment.find(params[:id])
+    @subdiscussion = @comment.sub_discussion
+    @comment.downvote_by current_user
+    # redirect_back fallback_location: '/', allow_other_host: false
+  end
+
   private
 
   def comment_params
-    params.require(:comment).permit(:content)
+    params.require(:comment).permit(:content, :id, :sub_discussion_id)
   end
 end

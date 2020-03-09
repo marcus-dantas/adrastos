@@ -1,8 +1,7 @@
-<div class="page-layout">
+<div class="disc-layout">
 
 <div class="panel">
     <h1>ADRASTOS</h1>
-    <%= link_to "Go back to Article", article_path(@discussion.article), class: "go-back" %>
     <h3><%= @discussion.title %></h3>
     <div class="titles">
     <span id="title-top">Sub-discussions</span>
@@ -10,8 +9,8 @@
     </div>
     <ul class="topics sub-list">
       <% @discussion.sub_discussions.each do |subdiscussion| %>
-        <li>
-          <span class="span-subdiscu" data-subid="<%= subdiscussion.id %>"><%= subdiscussion.title %></span>
+        <li class="subdiscu-pointer span-subdiscu" data-subid="<%= subdiscussion.id %>">
+          <span><%= subdiscussion.title %></span>
           <i><%= subdiscussion.comments.count %></i>
         </li>
         <% end %>
@@ -20,6 +19,7 @@
       <p>Not finding the topic you're looking for?</p>
       <a href="" class="log-in" id="show-button">Open a new topic</a>
     </div>
+    <div class="home-link d-flex justify-content-center"> <%= link_to "Back", article_path(@discussion.article), class: "back-button ml-3"%></div>
     <div id="new-topic" class="d-none">
       <div class="hidden-form" id="art-title">
         <%= simple_form_for ([ @discussion, SubDiscussion.new ]) do |f| %>
@@ -34,7 +34,7 @@
     <div class="panel">
 
     <% @sub_discussions.each do |subdiscussion| %>
-      <div class="d-none sub-comments" id="span_<%= subdiscussion.id %>">
+      <div class="sub-comments <%= 'd-none' if subdiscussion.id != @selected %>" id="span_<%= subdiscussion.id %>">
        <h1> <%= subdiscussion.title %> </h1>
           <span> Open since <%= subdiscussion.created_at.strftime('%b. %d %Y') %> </span>
           <% subdiscussion.comments.each do |comment| %>
@@ -49,11 +49,21 @@
 
             </div>
           </div>
+            <div class="voting-container_<%= comment.id %>">
               <li id="comm-cont"><%= comment.content %></li>
+              <%= link_to like_sub_discussion_comment_path(subdiscussion, comment), id: "vote_#{comment.id}", class: "like-btn", method: :put, remote: true, data: { turbolinks: :false }, style: "#{current_user.voted_up_on?(comment) ? 'pointer-events: none' : ''}" do %>
+                <i class="fas fa-chevron-circle-up"></i>
+                <%= comment.get_upvotes.size %>
+              <% end %>
+              <%= link_to dislike_sub_discussion_comment_path(subdiscussion, comment), id: "vote_#{comment.id}", class: "like-btn", method: :put, remote: true, data: { turbolinks: :false }, style: "#{current_user.voted_down_on?(comment) ? 'pointer-events: none' : ''}" do %>
+                <i class="fas fa-chevron-circle-down"></i>
+                <%= comment.get_downvotes.size %>
+              <% end %>
+            </div>
           </ul>
           <% end %>
        <div class="hidden-form" id="art-title">
-        <%= simple_form_for ([ subdiscussion, Comment.new ]) do |f| %>
+        <%= simple_form_for([ subdiscussion, Comment.new ], html: { id: "discussion_#{subdiscussion.id}"}) do |f| %>
           <div class="form-inputs title-border">
             <%= f.input :content, label:'', input_html: { class: 'disc-title' } %>
           </div>
@@ -61,12 +71,18 @@
         <% end %>
       </div>
       </div>
-      <%= link_to "Home", root_path %>
     <% end %>
-
-
-
-
     </div>
 
 </div>
+
+<!-- <script>
+  var forms = document.querySelectorAll('.simple_form.new_comment');
+  forms.forEach(form => {
+    form.addEventListener('submit', e => {
+      // e.preventDefault();
+      const comment = e.target.elements[0].value;
+
+    })
+  })
+</script> -->

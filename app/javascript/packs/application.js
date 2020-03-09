@@ -43,13 +43,14 @@ document.addEventListener('turbolinks:load', () => {
           if (subComment.classList.contains("d-none")) {
 
           } else {
-            subComment.classList.add("d-none")  
+            subComment.classList.add("d-none")
           }
         });
         let id = event.currentTarget.dataset.subid;
         document.getElementById(`span_${id}`).classList.remove("d-none")
       })
     })
+
 
 import "controllers"
 

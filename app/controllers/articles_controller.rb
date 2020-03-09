@@ -1,8 +1,19 @@
 class ArticlesController < ApplicationController
-  before_action :find_article, only: [ :show, :edit, :update, :destroy ]
+  before_action :find_article, only: [ :show, :edit, :update, :destroy, :upvote, :downvote ]
   skip_before_action :authenticate_user!, only: [:index]
   def index
-    @articles = Article.all.first(8)
+      if params[:query].present?
+      @articles = Article.where("title ILIKE ?", "%#{params[:query]}%")
+        if @articles.exists?
+          @articles
+        end
+      @discussion = Discussion.where("title ILIKE ?", "%#{params[:query]}%")
+        if @discussion.exists?
+          @articles = Article.joins(:discussions).where("discussions.title ILIKE ?", "%#{params[:query]}%")
+        end
+    else
+      @articles = Article.all.first(8)
+    end
   end
 
   def show
@@ -40,6 +51,16 @@ class ArticlesController < ApplicationController
   def destroy
     @article.destroy
     redirect_to root_path
+  end
+
+  def upvote
+    @article.upvote_by current_user
+    redirect_back fallback_location: '/', allow_other_host: false
+  end
+
+  def downvote
+    @article.downvote_by current_user
+    redirect_back fallback_location: '/', allow_other_host: false
   end
 
   private
