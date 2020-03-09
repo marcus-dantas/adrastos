@@ -1,17 +1,18 @@
-<div class="container sign-up-container">
-  <div class="row justify-content-center">
-   <div class="logo-container">
-  <h2>Your articles</h2>
-  <ul>
+<div class="user-profile">
+  <h2>Your Articles</h2>
   <% @user.articles.each do |article| %>
-  <li class="font-icon-center"><%=link_to article.title , article_path(article), clasS: "user-article-link"%><%= link_to ("<i class='far fa-trash-alt'></i>").html_safe, article_path(article),
-                          method: :delete,
-                          data: { confirm: "Are you sure?" }, class: "delete-article"%>
-                         <%= link_to ("<i class='far fa-edit'></i>").html_safe, edit_article_path(article), class: "edit-article" %> </li>
-    
-  <% end %>
-  </ul>
+    <div class="edit-profile">
+      <div class="article-title-link">
+        <%=link_to article.title , article_path(article), clasS: "user-article-link"%>               
+      </div>
+      <div class="article-actions-link">
+        <%= link_to ("<i class='far fa-trash-alt'></i>").html_safe, article_path(article),
+                      method: :delete,
+                      data: { confirm: "Are you sure?" }, class: "delete-article"%>
+        <%= link_to ("<i class='far fa-edit'></i>").html_safe, edit_article_path(article), class: "edit-article" %>
+      </div>
 
-  </div>
-</div>
+    </div>
+  <% end %>
+
 </div>
