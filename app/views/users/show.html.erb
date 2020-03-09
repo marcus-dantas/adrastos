@@ -1,4 +1,5 @@
 <div class="user-profile">
+<<<<<<< HEAD
         <h2>Your Articles</h2>
         <% @user.articles.each do |article| %>
      <div class="edit-profile">
@@ -15,3 +16,22 @@
       
 </div>
 
+=======
+  <h2>Your Articles</h2>
+  <% @user.articles.each do |article| %>
+    <div class="edit-profile">
+      <div class="article-title-link">
+        <%=link_to article.title , article_path(article), clasS: "user-article-link"%>               
+      </div>
+      <div class="article-actions-link">
+        <%= link_to ("<i class='far fa-trash-alt'></i>").html_safe, article_path(article),
+                      method: :delete,
+                      data: { confirm: "Are you sure?" }, class: "delete-article"%>
+        <%= link_to ("<i class='far fa-edit'></i>").html_safe, edit_article_path(article), class: "edit-article" %>
+      </div>
+
+    </div>
+  <% end %>
+
+</div>
+>>>>>>> 0308e0bfec19abd2b593ce78f61c3bd713f6142c
