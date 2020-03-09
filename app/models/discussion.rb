@@ -1,4 +1,5 @@
 class Discussion < ApplicationRecord
+  acts_as_votable
   belongs_to :user
   belongs_to :article
   has_many :comments, through: :sub_discussions
