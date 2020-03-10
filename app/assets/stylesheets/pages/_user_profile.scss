@@ -1,15 +1,14 @@
 .user-article-link {
-  font-size: 24px;
-  font-family: $paragraph-font;
-  color: Black;
-  padding: 0px 15px;
-  &:hover {
-    color: rgb(77, 73, 73);
-    text-decoration: none;
-   //  text-shadow: 0px 1px black;
-  }
+ font-size: 24px;
+ font-family: $paragraph-font;
+ color: Black;
+ padding: 0px 15px;
+ &:hover {
+   color: rgb(77, 73, 73);
+   text-decoration: none;
+  //  text-shadow: 0px 1px black;
  }
- 
+}
  .delete-article {
    font-size: 16px ;
     i:hover {
@@ -42,6 +41,8 @@
  .user-profile li {
    align-items: center;
  }
+
+
 
  .edit-profile {
     display: flex;
