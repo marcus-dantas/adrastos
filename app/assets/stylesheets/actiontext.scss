@@ -40,6 +40,19 @@ trix-editor{
       overflow-y: auto !important;
 }
 
+.comment-action-text {
+  min-height: 100px;
+  width: 100%;
+}
+
+.comment-action-label {
+
+}
+
+.comment-action-submit {
+  margin-top: 15px;
+}
+
 figcaption {
   display: none !important;
 }
@@ -89,6 +102,6 @@ margin-top: 24px;
 }
 
 .trix-content {
- 
+
   overflow-y: auto;
 }

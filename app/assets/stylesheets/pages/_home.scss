@@ -34,12 +34,17 @@ p a {
     font-family: $title-font;
     font-size: 9.5rem;
     font-weight: bold;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
   .join {
     font-family: $title-font;
     margin-top: 25px;
     font-size: 30px;
   }
+}
+.slogan {
+  font-family: $title-font;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
 }
 //   }
 //   .right-most-btn{
@@ -103,6 +108,10 @@ p a {
 
   .article {
     position: relative;
+    transition: all .2s ease-in-out;
+    &:hover {
+      transform: scale(1.02);
+    }
 
     &:after {
       content: '';
