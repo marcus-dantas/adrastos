@@ -140,4 +140,11 @@ ul {
   .d-none-mobile {
     display: none;
   }
+  .mobile-back-btn {
+    position: relative;
+  }
+  .span-back {
+    position: absolute;
+    right: 15px;
+  }
 }
