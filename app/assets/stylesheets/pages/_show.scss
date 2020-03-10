@@ -49,10 +49,18 @@
   padding: 40px;
 }
 
+.p-left-sticky {
+  top: 0;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: scroll;
+  position: sticky;
+}
+
 .disc-title {
   border: 5px solid black;
   display: inline-block;
-  text-align: center;
+  text-align: left;
   vertical-align: middle;
 }
 

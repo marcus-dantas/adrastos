@@ -124,6 +124,27 @@ ul {
 .avatar-comment {
   width: 40px;
   height: 40px;
+  object-fit: cover;
   margin-right: 7px;
   border: 2px solid black;
+}
+
+@media(max-width: 800px) {
+  .disc-layout {
+    grid-template-columns: 1fr;
+    &:before {
+      width: 0;
+      height: 0;
+    }
+  }
+  .d-none-mobile {
+    display: none;
+  }
+  .mobile-back-btn {
+    position: relative;
+  }
+  .span-back {
+    position: absolute;
+    right: 15px;
+  }
 }
