@@ -16,6 +16,9 @@ document.querySelector(".voting-container_<%= @comment.id %>").insertAdjacentHTM
       <i class="fas fa-chevron-circle-down"></i>
       <%= @comment.get_downvotes.size %>
     <% end %>
+    <%= link_to ("<i class='far fa-trash-alt'></i>").html_safe, comment_path(@comment), id: "vote_#{@comment.id}",
+        method: :delete,
+        data: { confirm: "Are you sure?" }, class: "comment-delete"%>
   `)
 
 
