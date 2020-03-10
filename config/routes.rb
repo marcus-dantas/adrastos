@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, only: [:show]
   root to: 'articles#index'
+  resources :mentions, only: [:index]
   resources :articles do
     member do
       put "like", to: "articles#upvote"
