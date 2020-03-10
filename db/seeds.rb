@@ -54,7 +54,7 @@ puts "created #{SubDiscussion.count} SubDiscussions"
 
 SubDiscussion.all.each do |subdisc|
   rand(3..5).times do
-    Comment.create!(content: Faker::Games::WorldOfWarcraft.quote, user: User.all.sample, sub_discussion: subdisc)
+    Comment.create!(content: Faker::Games::WorldOfWarcraft.quote,comment_text: Faker::Games::WorldOfWarcraft.quote, user: User.all.sample, sub_discussion: subdisc)
   end
 end
 puts "created #{Comment.count} Comments"
