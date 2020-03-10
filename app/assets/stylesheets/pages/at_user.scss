@@ -1,0 +1,13 @@
+.at-user {
+  color: rgb(119, 119, 206);
+ &:hover {
+   color: rgb(62, 62, 197);
+ }
+}
+
+.mention {
+  &:hover {
+    text-decoration: none;
+    // color: black;
+  }
+}

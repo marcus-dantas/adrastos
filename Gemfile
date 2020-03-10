@@ -22,7 +22,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'tribute'
 gem 'faker', '~> 2.10', '>= 2.10.2'
 
 gem 'cloudinary', '~> 1.12.0'

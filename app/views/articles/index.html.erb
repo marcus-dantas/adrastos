@@ -32,7 +32,7 @@
 
   <!-- Grid of cards showing all the articles -->
   <div class="index-grid">
-    <% @articles.each_with_index do |article, index| %>
+    <% (@articles.sample(8)).each_with_index do |article, index| %>
       <%= link_to article_path(article), class: "article-#{index + 1} article game-title-grid" do %>
         <% if article.photo.attached? %>
           <%= cl_image_tag article.photo.key %>
@@ -40,6 +40,7 @@
         <% else %>
           <img src="<%= article.photo_url %>" alt="cover image">
           <p class="game-title-grid"><%= article.title %></p>
+          <h4 class="opened-topics"><%=   article.discussions.count  %> Opened discussions </h4>
         <% end %>
       <% end %>
     <% end %>

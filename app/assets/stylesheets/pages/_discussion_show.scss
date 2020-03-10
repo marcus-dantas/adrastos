@@ -98,6 +98,8 @@ ul {
 }
 
 
+
+
 .like-btn {
   margin-top: 30px;
   margin-right: 20px;
@@ -107,17 +109,14 @@ ul {
   font-family: $paragraph-font;
   height:80px;
   padding: 5px 5px 5px 5px;
-
   &:hover {
     text-decoration: none;
     background: black;
     color: white;
-
-    i {
-    font-size: 25px;
-    color: white;
-    background: black
-   }
+    span, i {
+      color: white;
+      background: black;
+    }
   }
 }
 
