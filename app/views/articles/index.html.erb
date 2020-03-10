@@ -40,6 +40,7 @@
         <% else %>
           <img src="<%= article.photo_url %>" alt="cover image">
           <p class="game-title-grid"><%= article.title %></p>
+          <h4 class="opened-topics"><%=   article.discussions.count  %> Opened discussions </h4>
         <% end %>
       <% end %>
     <% end %>

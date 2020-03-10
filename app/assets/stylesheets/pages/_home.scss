@@ -162,7 +162,21 @@ p a {
       font-size: 32px;
       background: transparent;
       z-index: 2;
+      padding-bottom: 20px;
     }
+    .opened-topics {
+      position: absolute;
+      margin: 0;
+      padding: 0 16px;
+      bottom: 0;
+      color: white;
+      font-family: $paragraph-font;
+      font-size: 16px;
+      background: transparent;
+      z-index: 2;
+
+    }
+
   }
 
   .article-1 {
@@ -227,3 +241,4 @@ p a {
     }
   }
 }
+
