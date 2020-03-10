@@ -1,5 +1,6 @@
 <div class="page-layout">
-  <div class="panel">
+  <div class="panel" id="left-panel-articles">
+    <div id="mobile-back-btn"></div>
     <h1><%= @article.title %></h1>
     <p>Published on <%= @article.created_at.strftime('%b. %d %Y') %></p>
 <!--     <img src="<#%= @article.photo_url %>" alt="Grand Theft Auto 5 cover image" class="article-main-img">
@@ -32,8 +33,9 @@
     </div>
   </div>
 
-  <div class="panel">
+  <div class="panel" id="right-panel-article">
     <div class="category-container">
+      <div id="mobile-back-article-discussion"></div>
       <span class="category"><%= @article.discussions.count %> Questions</span>
     </div>
     <div class="titles">
@@ -71,3 +73,25 @@
   </div>
 </div>
 
+<script>
+  if (window.innerWidth <= 800) {
+    const article = document.querySelectorAll('.left-panel-articles')
+    document.getElementById('left-panel-articles').classList.remove('d-none')
+    document.getElementById('right-panel-article').classList.add('d-none-mobile')
+
+    const backBtn = document.getElementById('mobile-back-btn')
+    backBtn.insertAdjacentHTML("beforeend", "<span class='back-button span-article-back'>Show discussions</span>");
+    backBtn.addEventListener('click', (event) => {
+      document.getElementById('left-panel-articles').classList.add('d-none')
+      document.getElementById('right-panel-article').classList.remove('d-none-mobile')
+    })
+    const articleBack = document.getElementById('mobile-back-article-discussion')
+    articleBack.insertAdjacentHTML("beforeend", "<span class='back-button span-discussion-article-back'>Back to article</span>");
+    articleBack.addEventListener('click', (event) => {
+      document.getElementById('left-panel-articles').classList.remove('d-none')
+      document.getElementById('right-panel-article').classList.add('d-none-mobile')
+   })
+  }
+
+
+</script>
