@@ -1,7 +1,7 @@
 <div class="disc-layout">
 
-<div class="panel">
-    <h1>ADRASTOS</h1>
+  <div class="panel p-left-sticky" id="left-panel">
+    <h1> <%= @discussion.article.title %> </h1>
     <h3><%= @discussion.title %></h3>
     <div class="titles">
     <span id="title-top">Sub-discussions</span>
@@ -31,8 +31,8 @@
       </div>
     </div>
   </div>
-    <div class="panel">
-
+    <div class="panel d-none-mobile" id="right-panel">
+    <div id="mobile-back-btn"></div>
     <% @sub_discussions.each do |subdiscussion| %>
       <div class="sub-comments <%= 'd-none' if subdiscussion.id != @selected %>" id="span_<%= subdiscussion.id %>">
        <h1> <%= subdiscussion.title %> </h1>
@@ -87,6 +87,24 @@
     </div>
 
 </div>
+
+<script>
+  if (window.innerWidth <= 800) {
+    const discussions = document.querySelectorAll('.subdiscu-pointer')
+    discussions.forEach((discussion) => {
+      discussion.addEventListener('click', (event) => {
+        document.getElementById('left-panel').classList.add('d-none')
+        document.getElementById('right-panel').classList.remove('d-none-mobile')
+      })
+    })
+    const backBtn = document.getElementById('mobile-back-btn')
+    backBtn.insertAdjacentHTML("beforeend", "<span class='back-button span-back'>Back</span>");
+    backBtn.addEventListener('click', (event) => {
+      document.getElementById('left-panel').classList.remove('d-none')
+      document.getElementById('right-panel').classList.add('d-none-mobile')
+    })
+  };
+</script>
 
 <!-- <script>
   var forms = document.querySelectorAll('.simple_form.new_comment');
