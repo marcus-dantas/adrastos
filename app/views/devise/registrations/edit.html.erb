@@ -17,7 +17,8 @@
                 # required: true,
                 autofocus: true,
                 input_html: { autocomplete: "nickname" },
-                label_html: { class: 'input-labels'} %>
+                label_html: { class: 'input-labels'},
+                input_html: { class: 'input-input' } %>
 
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
             <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>

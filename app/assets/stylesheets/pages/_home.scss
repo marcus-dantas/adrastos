@@ -62,36 +62,64 @@ p a {
 //   }
 //   }
 
-.call-to-action {
-  // The two buttons on top of the grid
+.headers-home-container{
   display: flex;
-  justify-content: space-around;
-  border: 8px solid black;
-  width: 410px;
-  margin-bottom: 20px;
+  justify-content: space-between;
+  margin: 10px auto;
+  align-items: center;
+.call-to-action {
   .coming-soon {
-    width: 200px;
-    font-size: 35px;
     text-align: center;
-    font-family: $title-font;
+    text-decoration: none !important;
+    font-family: "Odibee Sans", cursive;
     color: white;
-    background: black;
+    background-color: black;
+    font-size: 24px;
+    border: 5px solid black;
     &:hover {
       text-decoration: none;
+      background-color: white;
+      color: black;
+      border: 5px solid black;
+      text-align: center;
+      }
     }
   }
-  .walkthrough {
-    width: 200px;
-    font-size: 35px;
-    text-align: center;
+  .home-search-container {
+    display: flex;
+    justify-content: space-around;
+    width: 430px;
+  }
+  .search-bar-input {
+    border: 5px solid black;
+    width: 300px;
+    // padding: 10px;
+    height: 45px;
+    padding-left: 10px;
+  }
+  .search-button {
+    // top: 50%;
+    // left: 40%;
+    text-decoration: none !important;
     font-family: $title-font;
-    color: black;
-    background: white;
+    color: white;
+    background-color: black;
+    // padding: 7px 40px;
+    font-size: 24px;
+    border: 5px solid black;
+    width: 120px;
+    text-align: center;
     &:hover {
-      text-decoration: none;
+      background-color: white;
+      color: black;
+      border: 5px solid black;
+      // transition: ease 0.5s;
     }
   }
 }
+
+
+
 
 // Below is the beginning of the grid for the article cards
 .index-grid {
@@ -197,40 +225,5 @@ p a {
     &:hover {
       text-decoration: none;
     }
-  }
-}
-.search-bar-input {
-  border: 8px solid black;
-  width: 300px;
-  padding: 10px;
-  height: 50px;
-}
-
-.search-bar-cont {
-  display: flex;
-
-}
-
-.headers-home-container{
-  display: flex;
-  justify-content: space-between;
-}
-
-.search-button {
-  // top: 50%;
-  // left: 40%;
-  text-decoration: none !important;
-  font-family: $title-font;
-  color: white;
-  background-color: black;
-  padding: 7px 40px;
-  font-size: 24px;
-  border: 5px solid white;
-
-  &:hover {
-    background-color: white;
-    color: black;
-    border: 5px solid black;
-    transition: ease 0.5s;
   }
 }
