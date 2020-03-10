@@ -24,7 +24,7 @@
       <div class="hidden-form" id="art-title">
         <%= simple_form_for ([ @discussion, SubDiscussion.new ]) do |f| %>
           <div class="form-inputs title-border">
-            <%= f.input :title, label:'', input_html: { class: 'disc-title' } %>
+            <%= f.input :title, label:'', input_html: { class: 'enter-discussion' } %>
           </div>
           <div>  <%= f.button :submit, "Add It!", class: "log-in" %> </div>
         <% end %>
@@ -65,6 +65,9 @@
                 <i class="fas fa-chevron-circle-down"></i>
                 <%= comment.get_downvotes.size %>
               <% end %>
+              <%= link_to ("<i class='far fa-trash-alt'></i>").html_safe, comment_path(comment), id: "vote_#{comment.id}",
+                            method: :delete,
+                            data: { confirm: "Are you sure?" }, class: "comment-delete"%>
             </div>
           </ul>
           <% end %>

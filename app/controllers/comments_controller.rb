@@ -20,9 +20,11 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = Comment.find(params[:id])
-    @comment.destroy
-    redirect_to sub_discussion_comments_path
+    comment = Comment.find(params[:id])
+    sub_discussion = comment.sub_discussion
+    discussion = sub_discussion.discussion
+    comment.destroy
+    redirect_to discussion_path(discussion)
   end
 
   def upvote
