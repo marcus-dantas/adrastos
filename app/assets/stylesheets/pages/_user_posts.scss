@@ -10,18 +10,19 @@
   padding: 3px 3px;
   width: 700px;
   height: 80px;
-    &:hover {
-      background: black;
-      color: white;
-    a, i {
-      color: white;
-      background: black
-    }
-    }
+  transition: all .5s ease;
 
   p {
     padding-left: 15px;
   }
+    &:hover {
+      height: 90px;
+
+    // a, i {
+    //   color: white;
+    //   background: black
+    // }
+    }
 }
 .user-profile{
   display: grid;

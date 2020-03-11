@@ -5,11 +5,11 @@
     <% @user.articles.each do |article| %>
       <div class="edit-profile">
         <div class="article-title-link">
-          <%=link_to article.title , article_path(article), class: "user-article-link"%>
+            <%=link_to article.title , article_path(article), class: "user-article-link"%>
             <br>
             <p><%= article.discussions.count %> Discussions</p>
-        </div>
-        <div class="article-actions-link">
+          </div>
+          <div class="article-actions-link">
             <% if article.user == current_user %>
             <%= link_to ("<i class='far fa-trash-alt'></i>").html_safe, article_path(article),
                           method: :delete,

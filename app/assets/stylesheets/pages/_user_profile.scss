@@ -3,6 +3,7 @@
  font-family: $paragraph-font;
  color: Black;
  padding: 0px 15px;
+ transition: all .5s ease;
  &:hover {
    color: black;
    text-decoration: none;
@@ -18,11 +19,11 @@
     font-weight: bold;
   }
  }
- 
+
  .font-icon-center {
    align-items: center;
  }
- 
+
  .edit-article {
    font-size: 16px ;
    i:hover {
@@ -31,14 +32,14 @@
    font-weight: bold;
  }
  }
- 
+
  .user-profile {
    width: 700px;
    margin: 0 auto;
    padding: 0px;
    text-align: center;
  }
- 
+
  .user-profile li {
    align-items: center;
  }
