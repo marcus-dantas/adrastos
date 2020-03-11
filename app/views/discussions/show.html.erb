@@ -31,7 +31,7 @@
       </div>
     </div>
   </div>
-    <div class="panel d-none-mobile" id="right-panel">
+    <div class="panel d-none-mobile" id="right-panel" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.1)), url(<%= @discussion.article.photo_url %>)" >
     <div id="mobile-back-btn"></div>
     <% @sub_discussions.each do |subdiscussion| %>
       <div class="sub-comments <%= 'd-none' if subdiscussion.id != @selected %>" id="span_<%= subdiscussion.id %>">
