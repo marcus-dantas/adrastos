@@ -35,6 +35,7 @@ p a {
     font-size: 9.5rem;
     font-weight: bold;
     margin-bottom: 10px;
+    animation: appear 2.5s ease-out;
   .join {
     font-family: $title-font;
     margin-top: 25px;
@@ -45,6 +46,7 @@ p a {
   font-family: $title-font;
   font-size: 2.5rem;
   margin-bottom: 20px;
+  animation: moveInRight 1s ease-out;
 }
 //   }
 //   .right-most-btn{
@@ -227,7 +229,11 @@ p a {
   margin-bottom: 60px;
   .grid-break-msg {
     font-family: $paragraph-font;
-    font-size: 35px;
+    font-size: 20px;
+  }
+  i {
+    font-size: 25px;
+    margin: 25px 6px;
   }
   .join-grid-break-btn {
     width: 293px;
@@ -242,3 +248,29 @@ p a {
   }
 }
 
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes moveInRight{
+  0% {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+
+  80% {
+    opacity: 1;
+    transform: translateX(-5px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}

@@ -185,9 +185,16 @@ ul {
   }
   .mobile-back-btn {
     position: relative;
+    text-align: center;
   }
   .span-back {
     position: absolute;
-    right: 15px;
+    right: 41px;
+    width: 20px;
+    top: 82px;
+    height: 50px;
+    align: center;
+    border: 3px solid white;
+    margin-right: 5px;
   }
 }
