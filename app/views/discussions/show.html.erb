@@ -42,15 +42,18 @@
           <ul id="comment-ul">
           <div class="comm-container">
             <div>
-              <% if comment.user.avatar.attached? %>
-                <%= cl_image_tag current_user.avatar.key, class: "avatar-comment" %>
-              <% else %>
-               <img src="no-image-icon" alt="">
+              <%= link_to user_path(comment.user_id) do %>
+                <% if comment.user.avatar.attached? %>
+                  <%= cl_image_tag current_user.avatar.key, class: "avatar-comment" %>
+                <% else %>
+                 <img src="no-image-icon" alt="">
+                <% end %>
               <% end %>
             </div>
             <div class="content">
-
-              <li> <h5> <%= comment.user.nickname %></h5> </li>
+              <%= link_to user_path(comment.user_id), class: "comment-nickname" do %>
+                <li> <h5> <%= comment.user.nickname %></h5> </li>
+              <% end %>
               <li class="com-date"> <%= comment.created_at.strftime('%b. %d %Y') %></li>
 
             </div>
@@ -71,6 +74,9 @@
                   <%= comment.get_downvotes.size %>
                 <% end %>
               <% end %>
+              <%= link_to ("Delete").html_safe, comment_path(comment), id: "vote_#{comment.id}",
+                            method: :delete,
+                            data: { confirm: "Are you sure?" }, class: "comment-delete"%>
             </div>
           </ul>
           <% end %>

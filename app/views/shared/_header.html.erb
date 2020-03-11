@@ -1,8 +1,9 @@
  <div class="main-header">
   <%= link_to "/", class: "logo" do %>
-    <%= image_tag "logoa.jpg" %>
-    </%>
+    <% if !current_page?(root_path) %>
+      <%= image_tag "logoa.jpg" %>
     <% end %>
+  <% end %>
       <% if user_signed_in? %>
         <li class="dropdown">
           <% if current_user.avatar.attached? %>
