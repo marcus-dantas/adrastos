@@ -4,8 +4,9 @@
  color: Black;
  padding: 0px 15px;
  &:hover {
-   color: rgb(77, 73, 73);
+   color: black;
    text-decoration: none;
+   font-weight: bold;
   //  text-shadow: 0px 1px black;
  }
 }

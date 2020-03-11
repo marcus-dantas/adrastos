@@ -12,8 +12,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   position: relative;
-
   &:before {
+    z-index: 1;
     content: "";
     position: fixed;
     width: 8px;
@@ -49,6 +49,12 @@
   padding: 40px;
 }
 
+#right-panel-article {
+  position: sticky;
+  top: 0;
+  max-height: 100vh;
+}
+
 .p-left-sticky {
   top: 0;
   height: 100vh;
@@ -79,6 +85,7 @@
 .flex-item {
   flex: 0 0 50%;
 }
+
 .topics{
   list-style-type:none;
   border-bottom: 8px solid black;
