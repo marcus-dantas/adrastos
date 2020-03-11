@@ -1,0 +1,43 @@
+.user-post-cont {
+  margin-top: 40px;
+  justify: center;
+
+}
+.edit-profile {
+  margin-top: 20px;
+  text-align: left;
+  border: 5px solid black;
+  padding: 3px 3px;
+  width: 700px;
+  height: 80px;
+    &:hover {
+      background: black;
+      color: white;
+    a, i {
+      color: white;
+      background: black
+    }
+    }
+
+  p {
+    padding-left: 15px;
+  }
+}
+.user-profile{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+      h2{
+
+    margin-bottom: 50px;
+    font-family: $title-font;
+    font-weight: 3px;
+    font-size: 50px;
+  }
+}
+
+.article-title-link {
+
+}
+.points {
+  margin-left: 120px;
+}

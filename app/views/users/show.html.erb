@@ -1,22 +1,31 @@
 <div class="user-profile">
-
-  <h2><%= @user.nickname.capitalize %>'s Articles</h2>
-  <% @user.articles.each do |article| %>
-    <div class="edit-profile">
-      <div class="article-title-link">
-        <%=link_to article.title , article_path(article), clasS: "user-article-link"%>               
-        <%= article.discussions.count %> - sub-discussions
-      </div>
-      <div class="article-actions-link">
-      <% if article.user == current_user %>
-        <%= link_to ("<i class='far fa-trash-alt'></i>").html_safe, article_path(article),
-                      method: :delete,
-                      data: { confirm: "Are you sure?" }, class: "delete-article"%>
-        <%= link_to ("<i class='far fa-edit'></i>").html_safe, edit_article_path(article), class: "edit-article" %>
-     <% end %>
-      </div>
-
+  <div class="articles-posts-cont">
+    <h2><%= @user.nickname.capitalize %>'s Articles</h2>
+    <div>
+    <% @user.articles.each do |article| %>
+      <div class="edit-profile">
+        <div class="article-title-link">
+          <%=link_to article.title , article_path(article), class: "user-article-link"%>
+            <br>
+            <p><%= article.discussions.count %> Discussions</p>
+        </div>
+        <div class="article-actions-link">
+            <% if article.user == current_user %>
+            <%= link_to ("<i class='far fa-trash-alt'></i>").html_safe, article_path(article),
+                          method: :delete,
+                          data: { confirm: "Are you sure?" }, class: "delete-article"%>
+            <%= link_to ("<i class='far fa-edit'></i>").html_safe, edit_article_path(article), class: "edit-article" %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-
+  </div>
+  <div class="points">
+    <h2> Your Points </h2>
+    <% points = (current_user.articles.count * 50) + (current_user.discussions.count * 20) %>
+    <h1> <%= points  %> </h1>
+  </div>
 </div>
+
+
