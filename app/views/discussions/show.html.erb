@@ -31,7 +31,7 @@
       </div>
     </div>
   </div>
-    <div class="panel d-none-mobile" id="right-panel" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.1)), url(<%= @discussion.article.photo_url %>)" >
+    <div class="panel d-none-mobile comment-img-style" id="right-panel" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.1)), url(<%= @discussion.article.photo_url %>)" >
     <div id="mobile-back-btn"></div>
     <% @sub_discussions.each do |subdiscussion| %>
       <div class="sub-comments <%= 'd-none' if subdiscussion.id != @selected %>" id="span_<%= subdiscussion.id %>">
@@ -40,43 +40,45 @@
           <% subdiscussion.comments.order(:created_at).each do |comment| %>
             <% next if comment.comment_text.nil? %>
           <ul id="comment-ul">
-          <div class="comm-container">
-            <div>
-              <%= link_to user_path(comment.user_id) do %>
-                <% if comment.user.avatar.attached? %>
-                  <%= cl_image_tag comment.user.avatar.key, class: "avatar-comment" %>
-                <% else %>
-                  <%= image_tag "no-image-icon", class: "avatar-comment" %>
+          <div class="comment-card">
+            <div class="comm-container">
+              <div>
+                <%= link_to user_path(comment.user_id) do %>
+                  <% if comment.user.avatar.attached? %>
+                    <%= cl_image_tag comment.user.avatar.key, class: "avatar-comment" %>
+                  <% else %>
+                    <%= image_tag "no-image-icon", class: "avatar-comment" %>
+                  <% end %>
                 <% end %>
-              <% end %>
-            </div>
-            <div class="content">
-              <%= link_to user_path(comment.user_id), class: "comment-nickname" do %>
-                <li> <h5> <%= comment.user.nickname %></h5> </li>
-              <% end %>
-              <li class="com-date"> <%= comment.created_at.strftime('%b. %d %Y') %></li>
+              </div>
+              <div class="content">
+                <%= link_to user_path(comment.user_id), class: "comment-nickname" do %>
+                  <li> <h5> <%= comment.user.nickname %></h5> </li>
+                <% end %>
+                <li class="com-date"> <%= comment.created_at.strftime('%b. %d %Y') %></li>
 
+              </div>
             </div>
-          </div>
-            <div class="voting-container_<%= comment.id %> test2">
-              <li id="comm-cont"><%= comment.comment_text %></li>
-              <% if comment.user ==  current_user %>
-                <%= link_to ("Delete").html_safe, comment_path(comment), id: "vote_#{comment.id}",
-                              method: :delete,
-                              data: { confirm: "Are you sure?" }, class: "comment-delete"%>
-              <% else %>
-                <%= link_to like_sub_discussion_comment_path(subdiscussion, comment), id: "vote_#{comment.id}", class: "like-btn", method: :put, remote: true, data: { turbolinks: :false }, style: "#{current_user.voted_up_on?(comment) ? 'pointer-events: none' : ''}" do %>
-                  <i class="fas fa-chevron-circle-up"></i>
-                  <%= comment.get_upvotes.size %>
+              <div class="voting-container_<%= comment.id %> test2">
+                <li id="comm-cont"><%= comment.comment_text %></li>
+                <% if comment.user ==  current_user %>
+                  <%= link_to ("Delete").html_safe, comment_path(comment), id: "vote_#{comment.id}",
+                                method: :delete,
+                                data: { confirm: "Are you sure?" }, class: "comment-delete"%>
+                <% else %>
+                  <%= link_to like_sub_discussion_comment_path(subdiscussion, comment), id: "vote_#{comment.id}", class: "like-btn", method: :put, remote: true, data: { turbolinks: :false }, style: "#{current_user.voted_up_on?(comment) ? 'pointer-events: none' : ''}" do %>
+                    <i class="fas fa-chevron-circle-up"></i>
+                    <%= comment.get_upvotes.size %>
+                  <% end %>
+                  <%= link_to dislike_sub_discussion_comment_path(subdiscussion, comment), id: "vote_#{comment.id}", class: "like-btn", method: :put, remote: true, data: { turbolinks: :false }, style: "#{current_user.voted_down_on?(comment) ? 'pointer-events: none' : ''}" do %>
+                    <i class="fas fa-chevron-circle-down"></i>
+                    <%= comment.get_downvotes.size %>
+                  <% end %>
                 <% end %>
-                <%= link_to dislike_sub_discussion_comment_path(subdiscussion, comment), id: "vote_#{comment.id}", class: "like-btn", method: :put, remote: true, data: { turbolinks: :false }, style: "#{current_user.voted_down_on?(comment) ? 'pointer-events: none' : ''}" do %>
-                  <i class="fas fa-chevron-circle-down"></i>
-                  <%= comment.get_downvotes.size %>
-                <% end %>
-              <% end %>
+              </div>
             </div>
-          </ul>
-          <% end %>
+            </ul>
+            <% end %>
        <div class="hidden-form" id="art-title">
         <%= form_for([ subdiscussion, Comment.new ], url: sub_discussion_comments_path(subdiscussion, anchor: "discussion_#{subdiscussion.id}"), html: { id: "discussion_#{subdiscussion.id}"}) do |f| %>
         <!-- <#%= simple_form_for([ subdiscussion, Comment.new ], html: { id: "discussion_#{subdiscussion.id}"}) do |f| %> -->
