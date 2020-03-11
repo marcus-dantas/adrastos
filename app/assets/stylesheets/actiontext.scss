@@ -36,10 +36,15 @@
 }
 
 trix-editor{
-  min-height: 300px;
+  min-height: 400px;
       overflow-y: auto !important;
 }
-
+.attachment__progress {
+  display: none;
+}
+trix-editor img {
+  max-width: 50%;
+}
 .comment-action-text {
   min-height: 100px;
   width: 100%;

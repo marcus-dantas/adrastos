@@ -50,7 +50,7 @@ document.addEventListener('turbolinks:load', () => {
         document.getElementById(`span_${id}`).classList.remove("d-none")
       })
     })
-document.querySelector(".sub-comments").classList.remove("d-none")
+// document.querySelector(".sub-comments").classList.remove("d-none")
 
 import "controllers"
 
