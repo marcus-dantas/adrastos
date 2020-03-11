@@ -68,6 +68,7 @@
   display: inline-block;
   text-align: left;
   vertical-align: middle;
+  background: white;
 }
 
 .header {
@@ -271,6 +272,9 @@ a i {
   &:hover {
     text-decoration: none;
   }
+}
+.comment-button {
+  border: 5px solid black !important;
 }
 
 @media(max-width: 800px) {

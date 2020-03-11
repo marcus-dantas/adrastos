@@ -86,7 +86,7 @@
             <!-- <#%= f.input :content, label:'', input_html: { class: 'disc-title' } %> -->
             <%= f.rich_text_area :comment_text, class: "disc-title comment-action-text", id: "subdiscussion-#{subdiscussion.id}", data: { controller: "mentions", target: "mentions.field"} %>
           </div>
-          <div> <%= f.submit "Comment!", class: "log-in comment-action-submit"     %> </div>
+          <div> <%= f.submit "Comment!", class: "log-in comment-action-submit comment-button"     %> </div>
           <!-- <div>  <#%= f.button :submit, "Send It!", class: "log-in" %> </div> -->
         <% end %>
       </div>
