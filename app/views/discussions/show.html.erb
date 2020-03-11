@@ -44,9 +44,9 @@
             <div>
               <%= link_to user_path(comment.user_id) do %>
                 <% if comment.user.avatar.attached? %>
-                  <%= cl_image_tag current_user.avatar.key, class: "avatar-comment" %>
+                  <%= cl_image_tag comment.user.avatar.key, class: "avatar-comment" %>
                 <% else %>
-                 <img src="no-image-icon" alt="">
+                  <%= image_tag "no-image-icon", class: "avatar-comment" %>
                 <% end %>
               <% end %>
             </div>
@@ -61,7 +61,7 @@
             <div class="voting-container_<%= comment.id %> test2">
               <li id="comm-cont"><%= comment.comment_text %></li>
               <% if comment.user ==  current_user %>
-                <%= link_to ("<i class='far fa-trash-alt'></i>").html_safe, comment_path(comment), id: "vote_#{comment.id}",
+                <%= link_to ("Delete").html_safe, comment_path(comment), id: "vote_#{comment.id}",
                               method: :delete,
                               data: { confirm: "Are you sure?" }, class: "comment-delete"%>
               <% else %>
@@ -74,9 +74,6 @@
                   <%= comment.get_downvotes.size %>
                 <% end %>
               <% end %>
-              <%= link_to ("Delete").html_safe, comment_path(comment), id: "vote_#{comment.id}",
-                            method: :delete,
-                            data: { confirm: "Are you sure?" }, class: "comment-delete"%>
             </div>
           </ul>
           <% end %>

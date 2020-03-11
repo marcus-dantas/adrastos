@@ -18,10 +18,12 @@
           </div>
         </li>
       <% else %>
+      <% unless current_page?(new_user_registration_path) || current_page?(new_user_session_path) %>
         <div class="session">
           <span><%= link_to "JOIN NOW", new_user_registration_path, class: "join" %></span>
           <span><%= link_to "Log in", new_user_session_path, class: "login" %></span>
         </div>
+      <% end %>
      <!--    <div class="btn-group" role="group" aria-label="Basic example">
           <button type="button" class="join">Join NOW</button>
           <button type="button" class="login">Log in</button>
