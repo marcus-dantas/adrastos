@@ -35,8 +35,8 @@
     <div id="mobile-back-btn"></div>
     <% @sub_discussions.each do |subdiscussion| %>
       <div class="sub-comments <%= 'd-none' if subdiscussion.id != @selected %>" id="span_<%= subdiscussion.id %>">
-       <h1> <%= subdiscussion.title %> </h1>
-          <span> Open since <%= subdiscussion.created_at.strftime('%b. %d %Y') %> </span>
+       <h1 class="txt-shadow"> <%= subdiscussion.title %> </h1>
+          <span class="txt-shadow-date"> Open since <%= subdiscussion.created_at.strftime('%b. %d %Y') %> </span>
           <% subdiscussion.comments.order(:created_at).each do |comment| %>
             <% next if comment.comment_text.nil? %>
           <ul id="comment-ul">

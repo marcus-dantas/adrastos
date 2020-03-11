@@ -273,7 +273,7 @@ a i {
   }
 }
 
-@media(max-width: 800px) {
+@media(max-width: 375px) {
   .page-layout {
     grid-template-columns: 1fr;
     &:before {
