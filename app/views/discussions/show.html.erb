@@ -45,9 +45,11 @@
               <div>
                 <%= link_to user_path(comment.user_id) do %>
                   <% if comment.user.avatar.attached? %>
-                    <%= cl_image_tag comment.user.avatar.key, class: "avatar-comment" %>
-                  <% else %>
-                    <%= image_tag "no-image-icon", class: "avatar-comment" %>
+                      <%= cl_image_tag comment.user.avatar.key, class: "avatar-comment" %>
+                    <% elsif comment.user.photo_url.present? %>
+                      <%= image_tag comment.user.photo_url, class: "avatar-comment" %>
+                    <% else %>
+                      <%= image_tag "no-image-icon", class: "avatar-comment" %>
                   <% end %>
                 <% end %>
               </div>
