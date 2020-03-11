@@ -307,11 +307,13 @@ a i {
 }
 
 .comment-delete {
-  font-size: 26px;
+  font-size: 22px;
   height: 120px;
-  i:hover {
-    background: white;
+  color: black;
+  font-family: $title-font;
+  &:hover {
     color: black;
     font-weight: bold;
+    text-decoration: none;
   }
 }
