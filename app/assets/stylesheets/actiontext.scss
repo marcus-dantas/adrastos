@@ -34,6 +34,19 @@
     }
   }
 }
+rix-toolbar .trix-button-group {
+  display: -webkit-box;
+  display: flex;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  background: white;
+  border: 1px solid black;
+}
+trix-toolbar .trix-button:not(:disabled) {
+  border: 1px solid black;
+  cursor: pointer;
+  background: white;
+}
 
 trix-editor{
   min-height: 400px;
