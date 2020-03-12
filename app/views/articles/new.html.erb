@@ -6,10 +6,10 @@
       </div>
       <div class="article-title">
         <%= form_for(@article) do |f| %>
-        <%= f.label :title, class: "article-title-labels", value: "Article title"%>
+        <%= f.label :title, class: "article-title-labels", value: "TITLE"%>
         <%= f.text_field :title, class: "article-input-title"%>
       </div>
-            <%= f.label :body, class: "article-labels" %>
+            <% f.label :body, class: "article-labels" %>
             <%= f.rich_text_area :body, class: "article-input", rows: 40%>
       <div class="article-content">
           <div>
