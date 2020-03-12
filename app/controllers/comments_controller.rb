@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     @sub_discussions = @discussion.sub_discussions
     @selected = @subdiscussion.id
     if @comment.save
-      flash[:notice] = "Commented created succesfully"
+      flash[:notice] = "Comment created succesfully"
       render 'discussions/show'
     else
       render :new
