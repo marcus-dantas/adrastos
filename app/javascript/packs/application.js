@@ -50,7 +50,13 @@ document.addEventListener('turbolinks:load', () => {
         document.getElementById(`span_${id}`).classList.remove("d-none")
       })
     })
-// document.querySelector(".sub-comments").classList.remove("d-none")
+// document.querySelector(".sub-right").rightrightrightclassList.remove("d-none")
+const noBackgroundImg = document.getElementById('right-panel')
+const eventTarget = document.querySelectorAll('.event-target').forEach((target) => {
+  target.addEventListener('click', () => {
+  noBackgroundImg.style.removeProperty('background-image');
+});
+});
 
 import "controllers"
 
