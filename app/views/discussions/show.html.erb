@@ -9,8 +9,8 @@
     </div>
     <ul class="topics sub-list">
       <% @discussion.sub_discussions.each do |subdiscussion| %>
-        <li class="subdiscu-pointer span-subdiscu" data-subid="<%= subdiscussion.id %>">
-          <span><%= subdiscussion.title %></span>
+        <li class="subdiscu-pointer span-subdiscu event-target" data-subid="<%= subdiscussion.id %>">
+          <span class="event-target"><%= subdiscussion.title %></span>
           <i><%= subdiscussion.comments.count %></i>
         </li>
         <% end %>
@@ -31,7 +31,11 @@
       </div>
     </div>
   </div>
-    <div class="panel d-none-mobile comment-img-style" id="right-panel" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.1)), url(<%= @discussion.article.photo_url %>)" >
+    <% if @selected %>
+      <div class="panel d-none-mobile comment-img-style" id="right-panel">
+    <% else %>
+      <div class="panel d-none-mobile comment-img-style" id="right-panel" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.1)), url(<%= @discussion.article.photo_url %>)" >
+    <% end %>
     <div id="mobile-back-btn"></div>
     <% @sub_discussions.each do |subdiscussion| %>
       <div class="sub-comments <%= 'd-none' if subdiscussion.id != @selected %>" id="span_<%= subdiscussion.id %>">
